@@ -29,7 +29,9 @@ params:
 
   socialIcons:
     - name: linkedin
-      url: "https://www.linkedin.com/in/meteeyingyong/"
+      url: "https://www.linkedin.com/in/metee-yingyong/"
+    - name: github
+      url: "https://github.com/turbokernel-th"
     - name: email
       url: "mailto:metee.ying@gmail.com"
 
