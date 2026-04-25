@@ -42,6 +42,7 @@ params:
 
   assets:
     disableHLJS: false
+    favicon: "favicon.svg"
 
 markup:
   goldmark:
