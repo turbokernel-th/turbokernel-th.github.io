@@ -5,6 +5,10 @@ draft: false
 post_type: "Blog Post"
 tags: ["Introduction", "AI", "Coding Agent", "OpenCode", "Claude Code", "Gemini", "Productivity", "Fun", "Python", "Gradio"]
 summary: "คุณไม่จำเป็นต้องเป็นวิศวกรก็ใช้ Coding Agent ได้ บทนำนี้จะแสดงให้เห็นว่าเราทำอะไรได้บ้าง ตั้งแต่ app แต่งรูป slide presentation 8 หน้า ไปจนถึง dashboard ข้อมูลแบบสดๆ ทั้งหมดนี้สร้างได้แค่เพียง 'เอ่ยปากถาม'"
+cover:
+    image: "images/anime_coder.jpeg"
+    alt: "Anime Coder"
+    relative: false
 ---
 
 ช่วงนี้ผมสนุกกับการใช้ [Coding Agent](https://github.com/google-gemini/gemini-cli) มากครับ ลองนึกภาพว่ามันคือ "ผู้ช่วยส่วนตัว" (อารมณ์เหมือนมี Jarvis ประจำตัว) แทนที่จะแค่ตอบคำถามเหมือน [chatbot](https://chatgpt.com) ทั่วไป เจ้าเอเจนท์ตัวนี้จะรับคำสั่งแล้วลงมือทำตามขั้นตอนต่าง ๆ ให้เราจนเสร็จงาน เพียงแค่เราบอกความต้องการ มันทำงานผ่าน `terminal` สามารถอ่านไฟล์ เขียนโค้ด และแก้ `bug` ได้เองจนจบงาน

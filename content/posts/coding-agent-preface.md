@@ -5,6 +5,10 @@ draft: false
 post_type: "Blog Post"
 tags: ["Introduction", "AI", "Coding Agent", "OpenCode", "Claude Code", "Gemini", "Productivity", "Fun", "Python", "Gradio"]
 summary: "You don't have to be an engineer to use a coding agent. This preface shows you what's possible — a photo editing app, an 8-slide PDF deck, and a live data dashboard — all built by just asking."
+cover:
+    image: "images/anime_coder.jpeg"
+    alt: "Anime Coder"
+    relative: false
 ---
 
 Coding agents are like having a personal assistant (think Jarvis). Unlike a standard chatbot that just gives you advice, an agent takes your request, executes the necessary steps, and completes the task while you simply describe what you need. Operating from your **terminal**, these tools can read files, write code, and fix their own errors until the job is done.
