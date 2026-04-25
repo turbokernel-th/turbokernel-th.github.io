@@ -4,8 +4,8 @@
 <div class="home-sections">
   <section class="home-section">
     <div class="section-header">
-      <h2 class="section-heading">Selected Work</h2>
-      <a href="/projects/" class="section-link">View all &rarr;</a>
+      <h2 class="section-heading">{{ i18n "selected_work" | default "Selected Work" }}</h2>
+      <a href="{{ "projects/" | absLangURL }}" class="section-link">{{ i18n "view_all" | default "View all" }} &rarr;</a>
     </div>
     {{- range where site.RegularPages "Section" "projects" | first 3 }}
     {{- partial "post_entry.html" . }}
@@ -14,8 +14,8 @@
 
   <section class="home-section">
     <div class="section-header">
-      <h2 class="section-heading">Recent Writing</h2>
-      <a href="/posts/" class="section-link">View all &rarr;</a>
+      <h2 class="section-heading">{{ i18n "recent_writing" | default "Recent Writing" }}</h2>
+      <a href="{{ "posts/" | absLangURL }}" class="section-link">{{ i18n "view_all" | default "View all" }} &rarr;</a>
     </div>
     {{- range where site.RegularPages "Section" "posts" | first 3 }}
     {{- partial "post_entry.html" . }}

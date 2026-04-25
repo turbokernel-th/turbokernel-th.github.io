@@ -1,2 +1,8 @@
 toc:
   other: "Table of Contents"
+selected_work:
+  other: "Selected Work"
+recent_writing:
+  other: "Recent Writing"
+view_all:
+  other: "View all"

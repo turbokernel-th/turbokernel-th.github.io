@@ -1,2 +1,8 @@
 toc:
   other: "หัวข้อในบทความ"
+selected_work:
+  other: "ผลงานที่คัดมา"
+recent_writing:
+  other: "บทความล่าสุด"
+view_all:
+  other: "ดูทั้งหมด"
