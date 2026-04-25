@@ -1,0 +1,30 @@
+{{- $class := "post-entry" }}
+{{- if .Params.weight }}
+{{- $class = printf "%s %s" $class "pin" }}
+{{- end }}
+<article class="{{ $class }}">
+  {{- $isHidden := .Params.cover.hidden | default site.Params.cover.hiddenInList }}
+  {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
+  <header class="entry-header">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+      <h2>
+        {{- .Title }}
+        {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+      </h2>
+      {{- if .Params.post_type }}
+      <span class="entry-type-badge">{{ .Params.post_type }}</span>
+      {{- end }}
+    </div>
+  </header>
+  {{- if (ne .Params.hideSummary true) }}
+  <div class="entry-content">
+    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+  </div>
+  {{- end }}
+  {{- if not .Params.hideMeta }}
+  <footer class="entry-footer">
+    {{- partial "post_meta.html" . -}}
+  </footer>
+  {{- end }}
+  <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+</article>

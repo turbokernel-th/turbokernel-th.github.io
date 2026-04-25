@@ -1,0 +1,1178 @@
+/* Custom CSS for Turbo AI Blog - Theme Aware */
+
+:root {
+    --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    --main-width: 1000px;
+}
+
+body {
+    font-family: var(--font-family-base);
+}
+
+/* -----------------------------------------
+   Layout & Spacing Adjustments
+   ----------------------------------------- */
+
+/* Reduce gap between nav and content */
+.main {
+    margin-top: 20px !important; /* Default is often larger */
+}
+
+/* Profile Mode Adjustments */
+.profile {
+    max-width: 300px !important; /* Reduced from 600px */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.profile .profile_inner {
+    width: 100%;
+}
+
+/* Ensure images in profile scale well */
+.profile img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ensure code blocks look good in both modes */
+.post-content pre {
+    background-color: var(--code-bg) !important;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1em;
+    overflow-x: auto;
+}
+
+code, pre, kbd {
+    font-family: var(--font-family-code);
+    font-size: 0.9em;
+}
+
+/* Headers */
+.header {
+    background: transparent !important;
+    border-bottom: 1px solid var(--border);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* =========================================
+   Scientific Table Design (Booktabs Style)
+   ========================================= */
+
+/* The Scrollable Wrapper (Added by JS) */
+.table-wrapper {
+    margin: 2rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Large DataFrames: cap height so they scroll instead of blowing up the page */
+.table-wrapper.tall-table {
+    max-height: 600px;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+/* Base Table Styles */
+table {
+    border-collapse: collapse;
+    width: max-content;
+    min-width: 100%;
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--primary);
+    line-height: 1.5;
+    font-feature-settings: "tnum";
+    /* Booktabs style: Thick bottom border */
+    border-bottom: 2px solid var(--primary);
+}
+
+/* Table Headers */
+table thead tr {
+    /* Booktabs style: Thick top border */
+    border-top: 2px solid var(--primary);
+    /* Booktabs style: Distinct bottom border for header */
+    border-bottom: 1px solid var(--primary); 
+    background-color: transparent;
+}
+
+table th {
+    font-weight: 600;
+    text-transform: none; /* Sentence case preferred in academia */
+    font-size: 0.85rem;
+    color: var(--primary);
+    padding: 10px 16px;
+    text-align: left;
+    vertical-align: bottom;
+    white-space: nowrap;
+}
+
+/* Body Cells */
+table td {
+    padding: 10px 16px;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    max-width: 500px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Remove border from last row */
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Very subtle striping for readability on wide tables */
+table tbody tr:nth-of-type(even) {
+    background-color: rgba(127, 127, 127, 0.04);
+}
+
+table tbody tr:hover {
+    background-color: rgba(127, 127, 127, 0.08);
+}
+
+/* -----------------------------------------
+   Pandas/Polars Dataframe Specifics
+   ----------------------------------------- */
+
+.dataframe {
+    border: none;
+    width: 100%;
+    table-layout: auto;
+}
+
+/* Scrollable long-text cells (added by JS) */
+.cell-scroll {
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+/* Polars pre-wrap divs */
+.dataframe td div[style*="pre-wrap"] {
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 0.82rem;
+}
+
+/* Polars shape annotation */
+.post-content small {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--secondary);
+    margin-bottom: 0.25rem;
+    font-family: var(--font-family-code);
+}
+
+/* Hide Index Column (Requires JS 'has-index' class) */
+.dataframe.has-index thead tr th:first-child,
+.dataframe.has-index tbody tr th:first-child {
+    display: none;
+}
+
+/* Ensure Dataframe text colors adapt to theme */
+.dataframe * {
+    color: var(--primary) !important;
+}
+
+/* Reset specific backgrounds */
+.dataframe tbody tr {
+    background-color: transparent !important;
+}
+
+/* Images inside tables */
+table img {
+    border-radius: 4px;
+    max-width: 120px;
+    height: auto;
+    display: block;
+}
+
+/* -----------------------------------------
+   Dark Mode Tweaks
+   ----------------------------------------- */
+body.dark table {
+    border-bottom: 2px solid #aaa;
+}
+
+body.dark table thead tr {
+    border-top: 2px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}
+
+body.dark table tbody tr:nth-of-type(even) {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+body.dark table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Entry Type Badge */
+.entry-type-badge {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: var(--tertiary);
+    color: var(--primary);
+    border: 1px solid var(--border);
+    margin-left: 10px;
+    white-space: nowrap;
+    line-height: 1;
+    align-self: center;
+}
+
+/* =========================================
+
+   CMD+K Search Modal
+
+   ========================================= */
+
+
+
+#search-modal {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.4); /* Darker overlay */
+
+    backdrop-filter: blur(4px);
+
+    z-index: 9999;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding-top: 10vh;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: opacity 0.2s, visibility 0.2s;
+
+}
+
+
+
+#search-modal.open {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+
+#search-modal .search-content {
+
+    background: var(--entry);
+
+    width: 600px;
+
+    max-width: 90%;
+
+    border-radius: 12px;
+
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    border: 1px solid var(--border);
+
+    display: flex;
+
+    flex-direction: column;
+
+    max-height: 80vh;
+
+    overflow: hidden;
+
+    position: relative;
+
+}
+
+
+
+/* Pagefind UI Overrides for PaperMod */
+
+.pagefind-ui {
+
+    width: 100%;
+
+    font-family: var(--font-family-base);
+
+}
+
+
+
+.pagefind-ui__form {
+
+    padding: 1rem;
+
+    border-bottom: 1px solid var(--border);
+
+    position: relative;
+
+}
+
+
+
+/* Force Magnifying Glass Icon Color */
+
+.pagefind-ui__form::before {
+
+    background-color: var(--primary) !important;
+
+}
+
+
+
+.pagefind-ui__search-input {
+
+    background: transparent !important;
+
+    border: none !important;
+
+    font-size: 1.2rem !important;
+
+    font-weight: 500;
+
+    color: var(--primary) !important;
+
+    padding: 0.5rem 0.5rem 0.5rem 2.5rem !important; /* Space for icon */
+
+}
+
+
+
+.pagefind-ui__search-input::placeholder {
+
+    color: var(--secondary) !important;
+
+    opacity: 0.7;
+
+}
+
+
+
+.pagefind-ui__search-input:focus {
+
+    outline: none !important;
+
+}
+
+
+
+.pagefind-ui__search-clear {
+
+    background: transparent !important;
+
+    color: var(--secondary) !important;
+
+}
+
+
+
+.pagefind-ui__drawer {
+
+    background: var(--entry);
+
+    overflow-y: auto;
+
+    max-height: 60vh;
+
+    padding: 0 1rem;
+
+}
+
+
+
+.pagefind-ui__result {
+
+    border-color: var(--border) !important;
+
+    padding: 1rem 0 !important;
+
+}
+
+
+
+.pagefind-ui__result-thumb {
+
+    display: none; /* Hide thumbnails for cleaner look */
+
+}
+
+
+
+.pagefind-ui__result-title {
+
+    font-weight: 600 !important;
+
+    font-size: 1.1rem !important;
+
+    color: var(--primary) !important;
+
+}
+
+
+
+.pagefind-ui__result-link {
+
+    color: var(--primary) !important;
+
+}
+
+
+
+.pagefind-ui__result-excerpt {
+
+    font-size: 0.95rem !important;
+
+    color: var(--secondary) !important;
+
+    margin-top: 0.5rem;
+
+}
+
+
+
+/* Highlighted text in results */
+
+.pagefind-ui__result-excerpt mark {
+
+    background-color: rgba(255, 255, 0, 0.3);
+
+    color: inherit;
+
+    border-radius: 2px;
+
+}
+
+
+
+body.dark .pagefind-ui__result-excerpt mark {
+
+    background-color: rgba(255, 215, 0, 0.2);
+
+    color: #eee;
+
+}
+
+
+
+.pagefind-ui__message {
+
+    color: var(--secondary) !important;
+
+    padding: 1rem !important;
+
+}
+
+
+
+/* -----------------------------------------
+
+
+
+   Nav Bar "Fake" Search Input Styles
+
+
+
+   ----------------------------------------- */
+
+
+
+
+
+
+
+/* Target the specific menu item by its URL href - using more robust selectors */
+
+
+
+.menu a[href$="#search"],
+
+
+
+#menu a[href$="#search"],
+
+
+
+nav a[href$="#search"] {
+
+
+
+    display: inline-flex !important;
+
+
+
+    align-items: center !important;
+
+
+
+    background-color: rgba(127, 127, 127, 0.1) !important;
+
+
+
+    border: 1px solid var(--border) !important;
+
+
+
+    border-radius: 8px !important;
+
+
+
+    padding: 4px 12px !important;
+
+
+
+    font-size: 14px !important;
+
+
+
+    color: var(--secondary) !important;
+
+
+
+    transition: all 0.2s ease !important;
+
+
+
+    height: 34px !important;
+
+
+
+    box-sizing: border-box !important;
+
+
+
+    margin-left: 15px !important;
+
+
+
+    text-decoration: none !important;
+
+
+
+}
+
+
+
+
+
+
+
+.menu a[href$="#search"]:hover,
+
+
+
+#menu a[href$="#search"]:hover,
+
+
+
+nav a[href$="#search"]:hover {
+
+
+
+    background-color: rgba(127, 127, 127, 0.15) !important;
+
+
+
+    border-color: var(--secondary) !important;
+
+
+
+    color: var(--primary) !important;
+
+
+
+}
+
+
+
+
+
+
+
+/* Add search icon via pseudo-element */
+
+
+
+.menu a[href$="#search"]::before,
+
+
+
+#menu a[href$="#search"]::before,
+
+
+
+nav a[href$="#search"]::before {
+
+
+
+    content: "";
+
+
+
+    display: inline-block;
+
+
+
+    width: 14px;
+
+
+
+    height: 14px;
+
+
+
+    margin-right: 8px;
+
+
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+
+
+
+    background-repeat: no-repeat;
+
+
+
+    background-position: center;
+
+
+
+    background-size: contain;
+
+
+
+    opacity: 0.7;
+
+
+
+}
+
+
+
+
+
+
+
+/* Dark mode adjustments for Nav Bar Input */
+
+
+
+body.dark .menu a[href$="#search"],
+
+
+
+body.dark #menu a[href$="#search"],
+
+
+
+body.dark nav a[href$="#search"] {
+
+
+
+    background-color: rgba(255, 255, 255, 0.08) !important;
+
+
+
+    color: #bbb !important;
+
+
+
+}
+
+
+
+
+
+
+
+body.dark .menu a[href$="#search"]::before,
+
+
+
+body.dark #menu a[href$="#search"]::before,
+
+
+
+body.dark nav a[href$="#search"]::before {
+
+
+
+    filter: invert(1) brightness(1.5);
+
+
+
+}
+
+
+
+
+
+
+
+/* Kbd hint styles inside the fake input */
+
+
+
+.search-hint-key {
+
+
+
+    border: 1px solid var(--border);
+
+
+
+    border-radius: 4px;
+
+
+
+    padding: 1px 5px;
+
+
+
+    font-size: 11px;
+
+
+
+    color: var(--secondary);
+
+
+
+    background-color: var(--tertiary);
+
+
+
+    margin-left: 10px;
+
+
+
+    line-height: 1.2;
+
+
+
+    display: inline-block;
+
+
+
+    font-family: var(--font-family-code);
+
+
+
+    font-weight: 500;
+
+
+
+}
+
+
+
+
+
+
+
+body.dark .search-hint-key {
+
+
+
+    background-color: rgba(0,0,0,0.3);
+
+
+
+    border-color: rgba(255,255,255,0.15);
+
+
+
+    color: #888;
+
+
+
+}
+
+/* =========================================
+   Notebook Rendering
+   ========================================= */
+
+/* --- Notebook Output Blocks (detected by JS) --- */
+.notebook-output {
+    border-left: 3px solid var(--border);
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0 1.5rem;
+    background: rgba(127, 127, 127, 0.03);
+    border-radius: 0 6px 6px 0;
+}
+
+body.dark .notebook-output {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Output label */
+.notebook-output-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--secondary);
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-family-code);
+}
+
+/* Nested table-wrapper inside output shouldn't double-margin */
+.notebook-output .table-wrapper {
+    margin: 0;
+}
+
+/* --- Code Cell Spacing --- */
+.post-content pre + pre {
+    margin-top: -0.5rem;
+}
+
+/* --- Notebook Inline HTML: Dark Mode Overrides --- */
+body.dark .post-content div[style*="background: #f4f4f4"],
+body.dark .post-content div[style*="background:#f4f4f4"] {
+    background: rgba(255, 255, 255, 0.06) !important;
+}
+
+body.dark .post-content div[style*="font-family: sans-serif"] {
+    color: var(--primary) !important;
+}
+
+body.dark .post-content div[style*="font-family: sans-serif"] b {
+    color: var(--primary) !important;
+}
+
+body.dark .post-content img[style*="border:1px solid #ddd"],
+body.dark .post-content img[style*="border: 1px solid #ddd"] {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+body.dark .post-content img[style*="border:1px solid #ccc"],
+body.dark .post-content img[style*="border: 1px solid #ccc"] {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* --- Notebook Image Galleries --- */
+.post-content div[style*="display:flex"] img,
+.post-content div[style*="display: flex"] img {
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* =========================================
+   Homepage Sections
+   ========================================= */
+
+.home-sections {
+    max-width: var(--main-width);
+    margin: 0 auto;
+    padding: 0 var(--gap);
+}
+
+.home-section {
+    margin-bottom: 2.5rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+}
+
+.section-heading {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--secondary);
+    margin: 0;
+}
+
+.section-link {
+    font-size: 0.8rem;
+    color: var(--secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.section-link:hover {
+    color: var(--primary);
+}
+
+/* =========================================
+   About Page Enhancements
+   ========================================= */
+
+.about-highlights {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 0 0 2rem;
+}
+
+@media screen and (max-width: 600px) {
+    .about-highlights {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.about-highlight {
+    padding: 1.25rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.about-highlight .value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: block;
+    font-feature-settings: "tnum";
+    line-height: 1.2;
+}
+
+.about-highlight .label {
+    font-size: 0.78rem;
+    color: var(--secondary);
+    margin-top: 0.35rem;
+    display: block;
+    line-height: 1.3;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.5rem 0 1.5rem;
+    list-style: none;
+    padding: 0;
+}
+
+.skill-tag {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--secondary);
+    font-family: var(--font-family-code);
+    white-space: nowrap;
+}
+
+/* =========================================
+   Sidebar TOC Layout
+   ========================================= */
+
+/* Large Screens: Grid Layout */
+@media screen and (min-width: 1200px) {
+    .post-layout-grid {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 40px;
+        align-items: start;
+        transition: all 0.3s ease;
+    }
+
+    .post-layout-grid.toc-collapsed {
+        grid-template-columns: 0px minmax(0, 1fr);
+        gap: 0;
+    }
+
+    .post-sidebar {
+        position: sticky;
+        top: 90px;
+        height: max-content;
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+        padding-right: 20px; /* Moved padding to right */
+        border-right: 1px solid var(--border); /* Moved border to right */
+        transition: opacity 0.2s, visibility 0.2s;
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .post-layout-grid.toc-collapsed .post-sidebar {
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        padding: 0;
+        border: none;
+    }
+}
+
+/* Tablet/Mobile: Stacked */
+@media screen and (max-width: 1199px) {
+    .post-layout-grid {
+        display: block;
+    }
+
+    .post-sidebar {
+        margin-bottom: 2rem;
+        background: var(--entry);
+        padding: 1rem;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        display: none;
+    }
+
+    .post-layout-grid.toc-mobile-open .post-sidebar {
+        display: block;
+    }
+
+}
+
+/* General TOC Styling */
+.toc-container {
+    font-size: 14px;
+    color: var(--secondary);
+}
+
+.toc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.toc-title {
+    font-weight: 600;
+    color: var(--primary);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+/* TOC FAB: hidden by default, shown when sidebar is collapsed */
+#toc-toggle-mobile {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 100;
+    background: var(--primary);
+    color: var(--theme);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+#toc-toggle-mobile:hover {
+    transform: scale(1.1);
+}
+
+/* Toggle Button — inside sidebar */
+#toc-toggle {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--secondary);
+    padding: 4px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+#toc-toggle:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--tertiary);
+}
+
+#toc-toggle.active {
+    background: var(--primary);
+    color: var(--theme);
+    border-color: var(--primary);
+}
+
+#TableOfContents {
+    /* Reset default list styles */
+}
+
+#TableOfContents ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#TableOfContents li {
+    margin-bottom: 6px;
+}
+
+#TableOfContents li a {
+    color: var(--secondary);
+    text-decoration: none;
+    display: block;
+    line-height: 1.4;
+    transition: all 0.2s;
+    border-left: 2px solid transparent;
+    padding-left: 10px;
+    margin-left: -12px; /* Pull back to align border */
+}
+
+#TableOfContents li a:hover,
+#TableOfContents li a.active {
+    color: var(--primary);
+    border-left-color: var(--primary);
+}
+
+/* Nested Levels */
+#TableOfContents ul ul {
+    margin-left: 10px;
+    margin-top: 6px;
+}
+
+/* Scrollbar for sidebar */
+.post-sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.post-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.post-sidebar::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+}
+
+.post-sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}

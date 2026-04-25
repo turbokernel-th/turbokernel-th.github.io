@@ -1,0 +1,25 @@
+{{- define "main" }}
+{{- partial "index_profile.html" . }}
+
+<div class="home-sections">
+  <section class="home-section">
+    <div class="section-header">
+      <h2 class="section-heading">Selected Work</h2>
+      <a href="/projects/" class="section-link">View all &rarr;</a>
+    </div>
+    {{- range where site.RegularPages "Section" "projects" | first 3 }}
+    {{- partial "post_entry.html" . }}
+    {{- end }}
+  </section>
+
+  <section class="home-section">
+    <div class="section-header">
+      <h2 class="section-heading">Recent Writing</h2>
+      <a href="/posts/" class="section-link">View all &rarr;</a>
+    </div>
+    {{- range where site.RegularPages "Section" "posts" | first 3 }}
+    {{- partial "post_entry.html" . }}
+    {{- end }}
+  </section>
+</div>
+{{- end }}

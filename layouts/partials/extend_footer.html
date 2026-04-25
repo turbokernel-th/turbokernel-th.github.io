@@ -1,0 +1,299 @@
+<div id="search-modal" class="hidden" aria-hidden="true">
+    <div class="search-content" role="dialog" aria-modal="true">
+        <div id="pagefind-search"></div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // -------------------------------------------------------------------------
+    // Existing Table Wrapper Logic
+    // -------------------------------------------------------------------------
+    const tables = document.querySelectorAll('.post-content table');
+    tables.forEach(table => {
+        if (table.parentNode.classList.contains('table-wrapper')) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-wrapper';
+        wrapper.style.overflowX = 'auto';
+        wrapper.style.marginBottom = '1.5rem';
+        
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+
+        if (table.classList.contains('dataframe')) {
+            const tbody = table.querySelector('tbody');
+            if (tbody) {
+                const rows = tbody.querySelectorAll('tr');
+                if (rows.length > 0) {
+                    const firstRow = rows[0];
+                    const firstCell = firstRow.firstElementChild;
+                    if (firstCell && firstCell.tagName === 'TH') {
+                        table.classList.add('has-index');
+                    }
+                }
+            }
+        }
+    });
+
+    // -------------------------------------------------------------------------
+    // Cmd+K Search Modal Logic
+    // -------------------------------------------------------------------------
+    const modal = document.getElementById('search-modal');
+    // More robust selector for the search trigger
+    const searchTrigger = document.querySelector('a[href$="#search"]');
+    let pagefindInitialized = false;
+
+    // Helper to close modal
+    const closeModal = () => {
+        if (!modal) return;
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
+
+    // Helper to open modal
+    const openModal = () => {
+        if (!modal) return;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        
+        if (!pagefindInitialized) {
+            initPagefind();
+        }
+        
+        setTimeout(() => {
+            const input = modal.querySelector('input.pagefind-ui__search-input');
+            if (input) input.focus();
+        }, 100);
+    };
+
+    // Toggle logic
+    const toggleModal = (e) => {
+        if (e) e.preventDefault();
+        if (!modal) return;
+        if (modal.classList.contains('open')) {
+            closeModal();
+        } else {
+            openModal();
+        }
+    };
+
+    // Initialize Pagefind (Lazy Load)
+    const initPagefind = () => {
+        if (!document.querySelector('link[href="/pagefind/pagefind-ui.css"]')) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = '/pagefind/pagefind-ui.css';
+            document.head.appendChild(link);
+        }
+
+        if (typeof PagefindUI === 'undefined') {
+            const script = document.createElement('script');
+            script.src = '/pagefind/pagefind-ui.js';
+            script.onload = () => {
+                new PagefindUI({
+                    element: "#pagefind-search",
+                    showSubResults: true,
+                    showImages: false,
+                    resetStyles: false
+                });
+                pagefindInitialized = true;
+                setTimeout(() => {
+                    const input = modal.querySelector('input.pagefind-ui__search-input');
+                    if (input) input.focus();
+                }, 200);
+            };
+            document.body.appendChild(script);
+        } else {
+            new PagefindUI({
+                element: "#pagefind-search",
+                showSubResults: true,
+                showImages: false,
+                resetStyles: false
+            });
+            pagefindInitialized = true;
+        }
+    };
+
+    // Event Listeners
+    if (searchTrigger) {
+        searchTrigger.addEventListener('click', toggleModal);
+        
+        // Transform the "Search" text to "Search..." and add Kbd hint
+        // Use innerHTML to keep it clean if we re-run this logic
+        searchTrigger.innerHTML = 'Search...';
+        
+        const kbd = document.createElement('span');
+        kbd.className = 'search-hint-key';
+        kbd.textContent = '⌘K';
+        
+        if (window.innerWidth > 768) {
+            searchTrigger.appendChild(kbd);
+        }
+    }
+
+    document.addEventListener('keydown', (e) => {
+        // Meta+K or Ctrl+K
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+            e.preventDefault(); // Prevent browser default
+            toggleModal();
+        }
+        // Escape to close
+        if (e.key === 'Escape' && modal.classList.contains('open')) {
+            closeModal();
+        }
+    });
+
+    // Click outside to close
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // -------------------------------------------------------------------------
+    // Notebook Output Detection
+    // -------------------------------------------------------------------------
+    const postContent = document.querySelector('.post-content');
+    if (postContent) {
+        const children = Array.from(postContent.children);
+        let afterCodeBlock = false;
+
+        for (const child of children) {
+            // Hugo wraps code blocks in div.highlight
+            if (child.classList.contains('highlight')) {
+                afterCodeBlock = true;
+                continue;
+            }
+
+            if (child.matches('h1, h2, h3, h4, h5, h6, hr')) {
+                afterCodeBlock = false;
+                continue;
+            }
+
+            if (afterCodeBlock) {
+                const isOutput = (
+                    child.tagName === 'TABLE' ||
+                    child.tagName === 'PRE' ||
+                    child.classList.contains('table-wrapper') ||
+                    child.tagName === 'SMALL' ||
+                    (child.tagName === 'DIV' && (
+                        child.hasAttribute('style') ||
+                        child.querySelector('table, style, img')
+                    )) ||
+                    (child.tagName === 'P' && child.children.length === 1 &&
+                        child.children[0].tagName === 'IMG')
+                );
+
+                if (isOutput) {
+                    if (!child.classList.contains('notebook-output')) {
+                        child.classList.add('notebook-output');
+                        const label = document.createElement('span');
+                        label.className = 'notebook-output-label';
+                        label.textContent = 'Output';
+                        child.insertBefore(label, child.firstChild);
+                    }
+                } else if (child.textContent.trim() === '') {
+                    // skip empty elements
+                } else {
+                    afterCodeBlock = false;
+                }
+            }
+        }
+
+        // Mark tall DataFrames (>8 rows) with scrollable wrapper
+        document.querySelectorAll('.table-wrapper').forEach(wrapper => {
+            const rows = wrapper.querySelectorAll('tbody tr');
+            if (rows.length > 8) {
+                wrapper.classList.add('tall-table');
+            }
+        });
+
+        // Wrap long text in table cells with scrollable div
+        document.querySelectorAll('.post-content table td').forEach(td => {
+            // Skip cells that already have child elements (images, divs)
+            if (td.querySelector('img, div, table')) return;
+            const text = td.textContent || '';
+            if (text.length > 300) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'cell-scroll';
+                while (td.firstChild) wrapper.appendChild(td.firstChild);
+                td.appendChild(wrapper);
+            }
+        });
+    }
+
+    // -------------------------------------------------------------------------
+    // TOC Toggle Logic
+    // -------------------------------------------------------------------------
+    const tocToggle = document.getElementById('toc-toggle');
+    const tocToggleMobile = document.getElementById('toc-toggle-mobile');
+    const layoutGrid = document.querySelector('.post-layout-grid');
+
+    const updateFabVisibility = () => {
+        if (!tocToggleMobile || !layoutGrid) return;
+        const isCollapsed = layoutGrid.classList.contains('toc-collapsed');
+        const isMobile = window.innerWidth < 1200;
+        const isMobileOpen = layoutGrid.classList.contains('toc-mobile-open');
+        // Show FAB when sidebar is hidden: desktop collapsed, or mobile (unless open)
+        tocToggleMobile.style.display = (isCollapsed || (isMobile && !isMobileOpen)) ? 'flex' : 'none';
+    };
+
+    const handleTocToggle = () => {
+        if (!layoutGrid) return;
+        if (window.innerWidth >= 1200) {
+            layoutGrid.classList.toggle('toc-collapsed');
+        } else {
+            layoutGrid.classList.toggle('toc-mobile-open');
+        }
+        if (tocToggle) tocToggle.classList.toggle('active');
+        updateFabVisibility();
+    };
+
+    if (tocToggle) tocToggle.addEventListener('click', handleTocToggle);
+    if (tocToggleMobile) tocToggleMobile.addEventListener('click', handleTocToggle);
+    updateFabVisibility();
+    window.addEventListener('resize', updateFabVisibility);
+
+    // -------------------------------------------------------------------------
+    // TOC ScrollSpy
+    // -------------------------------------------------------------------------
+    const toc = document.querySelector('#TableOfContents');
+    const content = document.querySelector('.post-content');
+    
+    if (toc && content) {
+        const headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        const tocLinks = toc.querySelectorAll('a');
+        
+        if (headings.length > 0 && tocLinks.length > 0) {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -80% 0px', // Trigger when header is near top
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remove active from all
+                        tocLinks.forEach(link => link.classList.remove('active'));
+                        
+                        // Find corresponding link
+                        const id = entry.target.getAttribute('id');
+                        if (id) {
+                            const link = toc.querySelector(`a[href="#${id}"]`);
+                            if (link) {
+                                link.classList.add('active');
+                            }
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            headings.forEach(heading => observer.observe(heading));
+        }
+    }
+});
+</script>

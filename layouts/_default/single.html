@@ -1,0 +1,73 @@
+{{- define "main" }}
+<article class="post-single">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title">
+      {{ .Title }}
+      {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+    </h1>
+    {{- if .Description }}
+    <div class="post-description">
+      {{ .Description }}
+    </div>
+    {{- end }}
+    {{- if not .Params.hideMeta }}
+    <div class="post-meta">
+      {{- partial "post_meta.html" . -}}
+    </div>
+    {{- end }}
+  </header>
+
+  {{- $isHidden := .Params.cover.hidden | default site.Params.cover.hiddenInSingle | default site.Params.cover.hidden }}
+  {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
+
+  <!-- Wrapper for Content + Sidebar -->
+  <div class="post-layout-grid">
+    <!-- Sidebar TOC -->
+    {{- if (.Param "ShowToc") }}
+    <aside class="post-sidebar">
+      <div class="toc-container">
+        <div class="toc-header">
+          <div class="toc-title">{{ i18n "toc" }}</div>
+          <button id="toc-toggle" class="toc-toggle" aria-label="Toggle table of contents">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="9" y2="18"/></svg>
+          </button>
+        </div>
+        {{ .TableOfContents }}
+      </div>
+    </aside>
+    {{- end }}
+
+    <div class="post-content">
+      {{- .Content }}
+    </div>
+  </div>
+
+  {{- if (.Param "ShowToc") }}
+  <button id="toc-toggle-mobile" aria-label="Toggle table of contents">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="9" y2="18"/></svg>
+  </button>
+  {{- end }}
+
+  <footer class="post-footer">
+    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+    <ul class="post-tags">
+      {{- range ($.GetTerms $tags) }}
+      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+    
+    {{- if (.Param "ShowShareButtons") }}
+      {{- partial "share_icons.html" . -}}
+    {{- end }}
+    
+    {{- if (.Param "ShowPostNavLinks") }}
+      {{- partial "post_nav_links.html" . -}}
+    {{- end }}
+  </footer>
+
+  {{- if (.Param "comments") }}
+    {{- partial "comments.html" . -}}
+  {{- end }}
+</article>
+{{- end }}
