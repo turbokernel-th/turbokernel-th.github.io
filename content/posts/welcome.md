@@ -9,7 +9,7 @@ summary: "Welcome to my new portfolio site built with Hugo and PaperMod."
 
 ## Hello World!
 
-Welcome to my personal portfolio and blog. I am **Metee Yingyong**, an AI Engineer and Data Practitioner based in Bangkok, Thailand.
+Welcome to my personal portfolio and blog. I am **Metee Yingyongwatthanakit**, an AI Engineer and Data Practitioner based in Bangkok, Thailand.
 
 This site hosts my projects, resume, and thoughts on the latest in Artificial Intelligence, specifically focusing on:
 

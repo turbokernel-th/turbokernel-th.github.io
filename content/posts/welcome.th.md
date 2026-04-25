@@ -9,7 +9,7 @@ summary: "ยินดีต้อนรับสู่เว็บไซต์ 
 
 ## Hello World!
 
-ยินดีต้อนรับสู่ Portfolio และเว็บบล็อกส่วนตัวของผมครับ ผมชื่อ **Metee Yingyong** เป็น AI Engineer และ Data Practitioner อยู่ที่กรุงเทพฯ ประเทศไทย
+ยินดีต้อนรับสู่ Portfolio และเว็บบล็อกส่วนตัวของผมครับ ผมชื่อ **เมธี ยิ่งยงวัฒนกิจ** (Metee Yingyongwatthanakit) เป็น AI Engineer และ Data Practitioner อยู่ที่กรุงเทพฯ ประเทศไทย
 
 เว็บไซต์นี้รวบรวมโปรเจกต์ เรซูเม่ และมุมมองของผมเกี่ยวกับเทคโนโลยี Artificial Intelligence ล่าสุด โดยจะเน้นไปที่เรื่องต่างๆ ดังนี้:
 
