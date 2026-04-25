@@ -7,7 +7,7 @@ tags: ["Introduction", "AI", "Coding Agent", "OpenCode", "Claude Code", "Gemini"
 summary: "You don't have to be an engineer to use a coding agent. This preface shows you what's possible — a photo editing app, an 8-slide PDF deck, and a live data dashboard — all built by just asking."
 ---
 
-Coding agents are like capable sous-chefs. Unlike a standard chatbot that just gives you a recipe, an agent goes to the counter, chops the vegetables, and prepares the meal while you simply describe what you want. Operating from your **terminal**, these tools can read files, write code, and fix their own errors until the job is done.
+Coding agents are like having a personal assistant (think Jarvis). Unlike a standard chatbot that just gives you advice, an agent takes your request, executes the necessary steps, and completes the task while you simply describe what you need. Operating from your **terminal**, these tools can read files, write code, and fix their own errors until the job is done.
 
 This series is for anyone held back by the technical side of building. Whether you are:
 - A student visualizing data for a project
