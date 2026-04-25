@@ -1,7 +1,7 @@
 ---
 title: "Coding Agent สำหรับทุกคน — บทนำ: สมมติว่าเราเขียนโค้ดด้วยภาษาไทย แล้วมัน work?"
 date: 2026-04-25
-draft: true
+draft: false
 post_type: "Blog Post"
 tags: ["Introduction", "AI", "Coding Agent", "OpenCode", "Claude Code", "Gemini", "Productivity", "Fun", "Python", "Gradio"]
 summary: "คุณไม่จำเป็นต้องเป็นวิศวกรก็ใช้ Coding Agent ได้ บทนำนี้จะแสดงให้เห็นว่าเราทำอะไรได้บ้าง ตั้งแต่ app แต่งรูป slide presentation 8 หน้า ไปจนถึง dashboard ข้อมูลแบบสดๆ ทั้งหมดนี้สร้างได้แค่เพียง 'เอ่ยปากถาม'"

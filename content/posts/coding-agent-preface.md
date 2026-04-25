@@ -1,7 +1,7 @@
 ---
 title: "Coding Agent for Everyone — Preface: What If You Could Code in Plain English, and It Just Works?"
 date: 2026-04-25
-draft: true
+draft: false
 post_type: "Blog Post"
 tags: ["Introduction", "AI", "Coding Agent", "OpenCode", "Claude Code", "Gemini", "Productivity", "Fun", "Python", "Gradio"]
 summary: "You don't have to be an engineer to use a coding agent. This preface shows you what's possible — a photo editing app, an 8-slide PDF deck, and a live data dashboard — all built by just asking."
