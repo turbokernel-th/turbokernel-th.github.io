@@ -20,37 +20,33 @@ You don't need to be an engineer. Agents handle the "how" so you can focus entir
 
 I asked the agent to build a functional photo editor from scratch.
 
-(No voiceover — just keyboard sounds.)
-
 {{< gdrive id="1c2j2QGwdd9nTNAx5pVncbVRNs302_cUz" >}}
 
 The agent selected [`gradio`](https://gradio.app/) and [`pillow`](https://python-pillow.org/), installed them, and wrote the interface code. Within minutes, I had a working web app for resizing, rotating, and applying artistic filters. I didn't write a single line of code; I just described the features.
 
-Next, I tested its ability to handle heavy reading by giving it a complex economic report to turn into a presentation.
-
-(Also no voiceover — I'll narrate what's happening in the next demo.)
+Next, I tested its ability to handle "heavy reading" by giving it a complex economic report to turn into a presentation.
 
 {{< gdrive id="1rBa8NJbeSvrHI_qD0uiMQOcnG0OV2_Xt" >}}
 
-The agent identified key data points — like oil price shifts and GDP impacts — and designed an eight-slide deck in both PowerPoint and PDF formats. A massive time-saver for anyone distilling long documents.
+The agent identified key data points—like oil price shifts and GDP impacts—and designed an eight-slide deck in both PowerPoint and PDF formats. This is a massive time-saver for anyone distilling long documents.
 
 Finally, I gave the agent a folder of messy raw data and asked for an interactive dashboard and a matching slide deck.
 
 {{< gdrive id="1RSV1plXwxuLvmv_x6uSMV293ryk1Z9tI" >}}
 
-Using [`pandas`](https://pandas.pydata.org/), the agent cleaned the files and built a dashboard with clickable charts. Since it used the same data for both outputs, everything matched perfectly — like having a data analyst and a graphic designer working simultaneously.
+Using [`pandas`](https://pandas.pydata.org/), the agent cleaned the files and built a dashboard with clickable charts. Since it used the same data for both the dashboard and the slides, everything matched perfectly—acting as both a data analyst and a graphic designer.
 
 ## Our roadmap
 
-1. **The Fundamentals** — Terminal basics, Python, and how agents think
-2. **Setting Up Your First Agent** — Getting started with OpenCode and Claude Code
-3. **Customizing the Experience** — Custom prompts and adding new skills
-4. **Sharing Your Work** — Putting your creations online
+1. **The Fundamentals**: Terminal basics, Python, and how agents think.
+2. **Setting Up Your First Agent**: Getting started with OpenCode and Claude Code.
+3. **Customizing the Experience**: Using custom prompts and adding new skills.
+4. **Sharing Your Work**: Putting your creations online for others to use.
 
-The next part covers technical foundations. Knowing a little about the terminal or how AI makes decisions helps a lot when things don't go as planned. Once we have the basics down, the real fun begins.
+The next part covers technical foundations. Knowing a little about the terminal or how AI makes decisions helps when building complex projects. Once we have the basics down, the real fun begins.
 
 ## Useful links
 
 - **Coding agents**: [Claude Code](https://claude.ai/code), [Gemini CLI](https://github.com/google-gemini/gemini-cli), [OpenCode](https://opencode.ai)
-- **Terminals**: [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell) (Windows), [Terminal / Bash](https://support.apple.com/guide/terminal/welcome/mac) (macOS/Linux)
+- **Terminals**: [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell) (Windows), [Terminal](https://support.apple.com/guide/terminal/welcome/mac) (macOS/Linux)
 - **Languages**: [Python](https://www.python.org/downloads/), [Node.js](https://nodejs.org/)
