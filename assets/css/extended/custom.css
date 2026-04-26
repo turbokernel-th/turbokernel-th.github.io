@@ -929,6 +929,24 @@ body.dark .post-content img[style*="border: 1px solid #ccc"] {
 }
 
 /* =========================================
+   Archive Empty State
+   ========================================= */
+
+.archive-empty {
+    padding: 3rem 0;
+    color: var(--secondary);
+    text-align: center;
+}
+
+.archive-empty a {
+    color: var(--primary);
+    text-decoration: underline;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
+/* =========================================
    About Page Enhancements
    ========================================= */
 
@@ -942,6 +960,26 @@ body.dark .post-content img[style*="border: 1px solid #ccc"] {
 @media screen and (max-width: 600px) {
     .about-highlights {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Collapse search nav pill to icon-only so it fits in narrow nav */
+    #menu a[href$="#search"],
+    nav a[href$="#search"] {
+        padding: 6px !important;
+        margin-left: 4px !important;
+        font-size: 0 !important;
+        width: 34px !important;
+        min-width: unset !important;
+        justify-content: center !important;
+    }
+
+    #menu a[href$="#search"]::before,
+    nav a[href$="#search"]::before {
+        margin-right: 0 !important;
+    }
+
+    .search-hint-key {
+        display: none !important;
     }
 }
 
@@ -1076,7 +1114,7 @@ body.dark .post-content img[style*="border: 1px solid #ccc"] {
 #toc-toggle-mobile {
     position: fixed;
     bottom: 20px;
-    left: 20px;
+    right: 20px;
     z-index: 100;
     background: var(--primary);
     color: var(--theme);
