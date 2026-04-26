@@ -40,6 +40,9 @@ params:
 
   ShowSearch: true
 
+  images:
+    - "/images/og-default.jpg"
+
   assets:
     disableHLJS: false
     favicon: "favicon.svg"

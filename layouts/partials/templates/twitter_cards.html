@@ -1,0 +1,27 @@
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary | truncate 200 }}{{ end }}">
+
+{{- $ogImage := "" }}
+{{- with .Params.images }}
+  {{- $ogImage = index . 0 | absURL }}
+{{- else }}
+  {{- with .Params.cover.image }}
+    {{- if strings.HasPrefix . "http" }}
+      {{- $ogImage = . }}
+    {{- else }}
+      {{- $ogImage = . | absURL }}
+    {{- end }}
+  {{- else }}
+    {{- $images := $.Resources.ByType "image" }}
+    {{- $featured := $images.GetMatch "*feature*" | default ($images.GetMatch "{*cover*,*thumbnail*}") }}
+    {{- with $featured }}
+      {{- $ogImage = $featured.Permalink }}
+    {{- else }}
+      {{- with site.Params.images }}
+        {{- $ogImage = index . 0 | absURL }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- with $ogImage }}<meta name="twitter:image" content="{{ . }}">{{ end }}
