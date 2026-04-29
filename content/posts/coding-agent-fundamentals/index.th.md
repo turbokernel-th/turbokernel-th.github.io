@@ -8,8 +8,7 @@ summary: "เปิดโปงเบื้องหลัง Claude Code, Gemin
 cover:
     image: "images/coder_robot_agent.jpeg"
     alt: "Anime coder opening the hood on a coding agent"
-    relative: true
-    responsiveImages: false
+    relative: false
 ---
 
 จำตอนที่แล้วได้ไหมครับที่เราคุยกันว่า coding agent เหมือนการมี Jarvis มาเป็นผู้ช่วยส่วนตัว วันนี้ผมจะพามาแงะดูข้างในกันครับ
@@ -22,7 +21,7 @@ cover:
 2. ทำไมแค่ LLM เพียวๆ ถึงยังไม่พอ?
 3. อะไรที่เปลี่ยน LLM ให้กลายเป็น *agent*?
 
-![Anime coder opening the chest panel of a friendly robot to reveal glowing circuitry inside](images/investigate_inside.jpeg)
+![Anime coder opening the chest panel of a friendly robot to reveal glowing circuitry inside](/images/investigate_inside.jpeg)
 
 ## สมอง: Large Language Model คืออะไรกันแน่?
 
@@ -40,7 +39,7 @@ cover:
 
 อาการ "ทำอะไรไม่ได้" นี่แหละที่เป็นปัญหาใหญ่ ลองจินตนาการดูว่าเรามีผู้ช่วยอัจฉริยะที่อ่านหนังสือมาหมดทั้งโลก แต่ดันโดนจับขังไว้ในห้องปิดตาย ไม่มีหน้าต่าง ไม่มีโทรศัพท์ ไม่มีเน็ต สิ่งที่เราทำได้คือสอดกระดาษคำถามใต้ประตูเข้าไป แล้วรอเขาสอดคำตอบกลับมา... สภาพนั้นแหละครับคือ chatbot ที่เราใช้กันอยู่
 
-![A glowing brain floating in a glass jar on a desk, surrounded by sticky notes with questions pressed against the glass](images/brain_in_jar.jpeg)
+![A glowing brain floating in a glass jar on a desk, surrounded by sticky notes with questions pressed against the glass](/images/brain_in_jar.jpeg)
 
 ถามว่ามันมีประโยชน์ไหม? มีครับ แต่ก็จำกัดมากๆ เพราะ "สมองในโหลแก้ว" แบบนี้ไม่สามารถ:
 

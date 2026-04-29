@@ -8,8 +8,7 @@ summary: "Open the hood on Claude Code, Gemini CLI, and OpenCode. What's actuall
 cover:
     image: "images/coder_robot_agent.jpeg"
     alt: "Anime coder opening the hood on a coding agent"
-    relative: true
-    responsiveImages: false
+    relative: false
 ---
 
 Last time we said a coding agent is like a personal assistant: Jarvis from *Iron Man*. Today we open the hood.
@@ -22,7 +21,7 @@ Three questions, in order:
 2. Why does an LLM by itself fall short?
 3. What turns an LLM into an *agent*?
 
-![Anime coder opening the chest panel of a friendly robot to reveal glowing circuitry inside](images/investigate_inside.jpeg)
+![Anime coder opening the chest panel of a friendly robot to reveal glowing circuitry inside](/images/investigate_inside.jpeg)
 
 ## The brain: what's a Large Language Model?
 
@@ -40,7 +39,7 @@ This shape has consequences. The model only knows what it read during training, 
 
 That second point is the big one. Picture a brilliant assistant who has read every book ever written, locked in a sealed room with no door, no phone, and no internet. You can slide a question under the door, and they slide back an answer. That's a chatbot.
 
-![A glowing brain floating in a glass jar on a desk, surrounded by sticky notes with questions pressed against the glass](images/brain_in_jar.jpeg)
+![A glowing brain floating in a glass jar on a desk, surrounded by sticky notes with questions pressed against the glass](/images/brain_in_jar.jpeg)
 
 Useful! But limited. The brain in the jar can't:
 

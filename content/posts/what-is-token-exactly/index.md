@@ -8,15 +8,14 @@ summary: "Tokens are the unit of currency for language models — every API bill
 cover:
     image: "images/colorful_token.jpeg"
     alt: "Colorful tokens — text shattered into glowing fragments"
-    relative: true
-    responsiveImages: false
+    relative: false
 ---
 
 Ask three engineers what a token is and you'll get three different answers: "a word," "a subword," "about four characters." All three are sort of right, and all three are sort of wrong.
 
 The honest answer is that a token is **whatever the tokenizer says it is** — and the tokenizer is a lookup table built by an algorithm that has nothing to do with grammar, meaning, or how humans read. Let's look at one in action.
 
-![A magnifying glass held over printed text, revealing words shattering into glowing colored fragments underneath the lens](images/token_magnify_glass.jpeg)
+![A magnifying glass held over printed text, revealing words shattering into glowing colored fragments underneath the lens](/images/token_magnify_glass.jpeg)
 
 ## Try it yourself
 
