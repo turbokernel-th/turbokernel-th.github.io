@@ -1,0 +1,151 @@
+{{- $id := printf "bpe-%s" (substr (sha1 (string .Ordinal)) 0 8) -}}
+<div class="bpe-merge" id="{{ $id }}">
+  <div class="bpe-header">
+    <div class="bpe-title">Watch BPE build a token</div>
+    <div class="bpe-controls">
+      <button type="button" data-act="reset" aria-label="Reset" title="Reset">↺</button>
+      <button type="button" data-act="step" aria-label="Step forward">Step ▸</button>
+      <button type="button" data-act="play" aria-label="Play">Play ▶</button>
+    </div>
+  </div>
+  <div class="bpe-corpus">Toy corpus: <code>"low lowest newest"</code> — three words that share the chunks <code>low</code>, <code>est</code>, and <code>new</code>. Watch BPE rediscover them by frequency alone.</div>
+  <div class="bpe-stage" data-stage></div>
+  <div class="bpe-merge-list" data-merges></div>
+  <div class="bpe-hint">Each step merges the most-common adjacent pair into a new token. After enough merges, recognisable subwords like <code>est</code>, <code>low</code>, and <code>new</code> emerge — without anyone teaching the algorithm what a word is.</div>
+</div>
+
+<script type="module">
+  (() => {
+    const root = document.getElementById('{{ $id }}');
+    if (!root || root.dataset.bound) return;
+    root.dataset.bound = '1';
+
+    const stage = root.querySelector('[data-stage]');
+    const mergeList = root.querySelector('[data-merges]');
+    const btnReset = root.querySelector('[data-act="reset"]');
+    const btnStep = root.querySelector('[data-act="step"]');
+    const btnPlay = root.querySelector('[data-act="play"]');
+
+    // Toy corpus "low lowest newest" — leading "·" marks word-initial space.
+    const initial = [
+      ['l','o','w'],
+      ['·','l','o','w','e','s','t'],
+      ['·','n','e','w','e','s','t'],
+    ];
+
+    // Greedy BPE merge order computed by hand on this corpus (ties broken by first occurrence).
+    const mergeSeq = [
+      ['l','o'],
+      ['lo','w'],
+      ['e','s'],
+      ['es','t'],
+      ['low','est'],
+      ['n','e'],
+      ['ne','w'],
+      ['new','est'],
+    ];
+
+    let step = 0;
+    let words = null;
+    let playing = null;
+
+    const hueFor = (s) => {
+      let h = 2166136261 >>> 0;
+      for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; }
+      return h % 360;
+    };
+
+    const renderStage = () => {
+      stage.innerHTML = '';
+      words.forEach((tokens) => {
+        const wrap = document.createElement('div');
+        wrap.className = 'bpe-word';
+        tokens.forEach((tok) => {
+          const pill = document.createElement('span');
+          pill.className = 'token-pill bpe-pill';
+          pill.style.setProperty('--token-hue', hueFor(tok));
+          pill.textContent = tok.replace(/·/g, '·');
+          wrap.appendChild(pill);
+        });
+        stage.appendChild(wrap);
+      });
+    };
+
+    const renderMerges = () => {
+      mergeList.innerHTML = '';
+      mergeSeq.forEach(([a,b], i) => {
+        const item = document.createElement('div');
+        item.className = 'bpe-merge-item';
+        if (i < step) item.classList.add('done');
+        if (i === step) item.classList.add('next');
+        item.innerHTML = `<span class="bpe-num">${i+1}</span><code>${a}</code>+<code>${b}</code>→<code>${a+b}</code>`;
+        mergeList.appendChild(item);
+      });
+    };
+
+    const applyMerge = (tokens, [a, b]) => {
+      const out = [];
+      let i = 0;
+      while (i < tokens.length) {
+        if (i < tokens.length - 1 && tokens[i] === a && tokens[i+1] === b) {
+          out.push(a + b);
+          i += 2;
+        } else {
+          out.push(tokens[i]);
+          i += 1;
+        }
+      }
+      return out;
+    };
+
+    const reset = () => {
+      step = 0;
+      words = initial.map(w => w.slice());
+      renderStage();
+      renderMerges();
+      updateButtons();
+    };
+
+    const updateButtons = () => {
+      const done = step >= mergeSeq.length;
+      btnStep.disabled = done;
+      btnPlay.disabled = done;
+      btnPlay.textContent = done ? 'Done — reset to replay' : (playing ? 'Pause ❚❚' : 'Play ▶');
+    };
+
+    const doStep = () => {
+      if (step >= mergeSeq.length) return false;
+      const merge = mergeSeq[step];
+      words = words.map(w => applyMerge(w, merge));
+      step++;
+      renderStage();
+      renderMerges();
+      requestAnimationFrame(() => {
+        stage.querySelectorAll('.bpe-pill').forEach((p) => {
+          if (p.textContent === merge[0] + merge[1]) p.classList.add('flash');
+        });
+      });
+      updateButtons();
+      return step < mergeSeq.length;
+    };
+
+    const stopPlay = () => {
+      if (playing) { clearInterval(playing); playing = null; }
+      updateButtons();
+    };
+
+    btnReset.addEventListener('click', () => { stopPlay(); reset(); });
+    btnStep.addEventListener('click', () => { stopPlay(); doStep(); });
+    btnPlay.addEventListener('click', () => {
+      if (playing) { stopPlay(); return; }
+      if (step >= mergeSeq.length) return;
+      playing = setInterval(() => {
+        const more = doStep();
+        if (!more) stopPlay();
+      }, 800);
+      updateButtons();
+    });
+
+    reset();
+  })();
+</script>

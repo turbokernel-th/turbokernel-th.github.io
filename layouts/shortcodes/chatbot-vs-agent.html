@@ -1,0 +1,49 @@
+{{- $id := printf "cva-%s" (substr (sha1 (string .Ordinal)) 0 8) -}}
+<div class="chatbot-vs-agent" id="{{ $id }}">
+  <div class="cva-prompt">
+    <span class="cva-prompt-tag">👤 You ask both:</span>
+    <span class="cva-prompt-body">"What's the weather in Bangkok right now?"</span>
+  </div>
+
+  <div class="cva-grid">
+    <div class="cva-col cva-col-chatbot">
+      <div class="cva-col-header">
+        <span class="cva-col-icon">💬</span>
+        <span class="cva-col-title">Chatbot</span>
+        <span class="cva-col-sub">LLM only</span>
+      </div>
+      <div class="cva-bubble cva-bubble-bot">
+        I don't have real-time access to current weather data. My information has a training cutoff, so I can't tell you what's happening in Bangkok right now. You could check a weather service like weather.com or your phone's weather app.
+      </div>
+      <div class="cva-verdict cva-verdict-no">
+        <span class="cva-verdict-mark">✗</span> Can describe; can't fetch.
+      </div>
+    </div>
+
+    <div class="cva-col cva-col-agent">
+      <div class="cva-col-header">
+        <span class="cva-col-icon">🤖</span>
+        <span class="cva-col-title">Agent</span>
+        <span class="cva-col-sub">LLM + tools</span>
+      </div>
+      <div class="cva-mini-step cva-mini-think">
+        <span class="cva-mini-tag">Think</span>
+        I need current data — I'll check a weather API.
+      </div>
+      <div class="cva-mini-step cva-mini-act">
+        <span class="cva-mini-tag">Act</span>
+        <code>get_weather({ city: "Bangkok" })</code>
+      </div>
+      <div class="cva-mini-step cva-mini-observe">
+        <span class="cva-mini-tag">Observe</span>
+        32°C, partly cloudy, humidity 71%
+      </div>
+      <div class="cva-bubble cva-bubble-agent">
+        It's 32°C in Bangkok right now — partly cloudy with 71% humidity. Toasty.
+      </div>
+      <div class="cva-verdict cva-verdict-yes">
+        <span class="cva-verdict-mark">✓</span> Real answer, in seconds.
+      </div>
+    </div>
+  </div>
+</div>

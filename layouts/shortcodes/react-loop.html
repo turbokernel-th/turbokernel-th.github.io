@@ -1,0 +1,115 @@
+{{- $id := printf "react-%s" (substr (sha1 (string .Ordinal)) 0 8) -}}
+<div class="react-loop" id="{{ $id }}">
+  <div class="react-loop-header">
+    <div class="react-loop-title">Watch the loop run</div>
+    <div class="react-loop-phase" data-phase-label>—</div>
+  </div>
+
+  <div class="react-loop-progress" data-progress aria-hidden="true">
+    <span class="react-dot" data-dot="0"></span>
+    <span class="react-dot" data-dot="1"></span>
+    <span class="react-dot" data-dot="2"></span>
+    <span class="react-dot" data-dot="3"></span>
+    <span class="react-dot" data-dot="4"></span>
+    <span class="react-dot" data-dot="5"></span>
+  </div>
+
+  <div class="react-loop-stage" data-stage>
+    <div class="react-step" data-step="0" data-role="user">
+      <div class="react-step-tag">👤 You</div>
+      <div class="react-step-body">Did Le Sserafim just release a new song?</div>
+    </div>
+    <div class="react-step" data-step="1" data-role="think">
+      <div class="react-step-tag">🤔 Think <span class="react-step-meta">(LLM)</span></div>
+      <div class="react-step-body">My training data has a cutoff months ago — I don't actually know about events from this month. I should search the web before answering.</div>
+    </div>
+    <div class="react-step" data-step="2" data-role="act">
+      <div class="react-step-tag">⚙️ Act <span class="react-step-meta">(tool call)</span></div>
+      <div class="react-step-body"><code>web_search({ query: "Le Sserafim new release April 2026" })</code></div>
+    </div>
+    <div class="react-step" data-step="3" data-role="observe">
+      <div class="react-step-tag">👀 Observe <span class="react-step-meta">(tool result)</span></div>
+      <div class="react-step-body">
+        <div class="react-result-item">📰 <strong>LE SSERAFIM Releases New Mini-Album</strong> — Billboard, 2 weeks ago</div>
+        <div class="react-result-item">📺 <strong>LE SSERAFIM Comeback Stage on Music Bank</strong> — Soompi, 1 week ago</div>
+        <div class="react-result-item">💬 <strong>Fans React to LE SSERAFIM's New Era</strong> — Variety, 5 days ago</div>
+      </div>
+    </div>
+    <div class="react-step" data-step="4" data-role="think">
+      <div class="react-step-tag">🤔 Think <span class="react-step-meta">(LLM)</span></div>
+      <div class="react-step-body">The search confirms a recent comeback. I have enough to answer concisely — no need to call another tool.</div>
+    </div>
+    <div class="react-step" data-step="5" data-role="answer">
+      <div class="react-step-tag">✅ Answer <span class="react-step-meta">(back to you)</span></div>
+      <div class="react-step-body">Yes — Le Sserafim recently released a new mini-album, with comeback stages running on music shows over the past two weeks. Want a track-by-track breakdown?</div>
+    </div>
+  </div>
+
+  <div class="react-loop-controls">
+    <button type="button" class="react-btn react-btn-ghost" data-reset>↺ Reset</button>
+    <div class="react-step-counter" data-counter>Step 1 / 6</div>
+    <button type="button" class="react-btn react-btn-primary" data-next>Next step →</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  const root = document.getElementById('{{ $id }}');
+  if (!root || root.dataset.bound) return;
+  root.dataset.bound = '1';
+
+  const steps = root.querySelectorAll('.react-step');
+  const dots = root.querySelectorAll('.react-dot');
+  const phaseLabel = root.querySelector('[data-phase-label]');
+  const counter = root.querySelector('[data-counter]');
+  const nextBtn = root.querySelector('[data-next]');
+  const resetBtn = root.querySelector('[data-reset]');
+  const total = steps.length;
+
+  const phaseNames = {
+    user: 'User asks',
+    think: 'Thinking…',
+    act: 'Acting…',
+    observe: 'Observing…',
+    answer: 'Answer'
+  };
+
+  let visible = 1;
+
+  function render() {
+    steps.forEach((step, i) => {
+      step.classList.toggle('is-visible', i < visible);
+      step.classList.toggle('is-current', i === visible - 1);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('is-active', i < visible);
+      dot.classList.toggle('is-current', i === visible - 1);
+    });
+    const currentRole = steps[visible - 1].dataset.role;
+    phaseLabel.textContent = phaseNames[currentRole] || '—';
+    phaseLabel.dataset.role = currentRole;
+    counter.textContent = `Step ${visible} / ${total}`;
+    nextBtn.disabled = visible >= total;
+    nextBtn.textContent = visible >= total ? 'Done ✓' : 'Next step →';
+    if (visible > 1) {
+      const last = steps[visible - 1];
+      last.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+
+  nextBtn.addEventListener('click', () => {
+    if (visible < total) {
+      visible++;
+      render();
+    }
+  });
+
+  resetBtn.addEventListener('click', () => {
+    visible = 1;
+    render();
+    root.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+  render();
+})();
+</script>

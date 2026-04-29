@@ -1,0 +1,248 @@
+{{- $id := printf "tok-%s" (substr (sha1 (string .Ordinal)) 0 8) -}}
+<div class="tokenizer-widget" id="{{ $id }}">
+  <div class="tokenizer-header">
+    <label>Type to tokenize</label>
+    <select class="tokenizer-encoding-select" data-encoding>
+      <optgroup label="Character-level">
+        <option value="char">Character (every grapheme)</option>
+      </optgroup>
+      <optgroup label="Word-level">
+        <option value="word">Whole-word (whitespace + punctuation)</option>
+      </optgroup>
+      <optgroup label="Subword (BPE)">
+        <option value="cl100k_base" selected>GPT-4 / GPT-3.5 · cl100k_base</option>
+        <option value="o200k_base">GPT-4o / GPT-5 · o200k_base</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <div class="tokenizer-presets" data-presets>
+    <button type="button" data-preset="pangram">Pangram</button>
+    <button type="button" data-preset="email">Email draft</button>
+    <button type="button" data-preset="thai">Thai</button>
+    <button type="button" data-preset="emoji">Emojis</button>
+    <button type="button" data-preset="code">Code</button>
+    <button type="button" data-preset="numbers">Numbers</button>
+    <button type="button" data-preset="shouting">SHOUTING</button>
+    <button type="button" data-preset="rare">Rare words</button>
+  </div>
+
+  <textarea
+    class="tokenizer-input"
+    rows="4"
+    spellcheck="false"
+    autocomplete="off"
+    autocorrect="off"
+    autocapitalize="off"
+    placeholder="Type or pick a preset above…">The quick brown fox jumps over the lazy dog.</textarea>
+
+  <div class="tokenizer-stats" aria-live="polite">
+    <span><strong data-stat="tokens">0</strong> tokens</span>
+    <span><strong data-stat="chars">0</strong> characters</span>
+    <span><strong data-stat="ratio">—</strong> chars/token</span>
+    <span><strong data-stat="vocab">—</strong> vocab</span>
+  </div>
+  <div class="tokenizer-output" data-output></div>
+  <div class="tokenizer-hint" data-hint>Hover a token to see its ID. Spaces are shown as <code>·</code>, newlines as <code>↵</code>. Switch tokenizers to compare strategies — character vs word vs subword.</div>
+</div>
+
+<script type="module">
+  (async () => {
+    const root = document.getElementById('{{ $id }}');
+    if (!root || root.dataset.bound) return;
+    root.dataset.bound = '1';
+
+    const input = root.querySelector('.tokenizer-input');
+    const output = root.querySelector('[data-output]');
+    const encodingSelect = root.querySelector('[data-encoding]');
+    const presetBar = root.querySelector('[data-presets]');
+    const stats = {
+      tokens: root.querySelector('[data-stat="tokens"]'),
+      chars: root.querySelector('[data-stat="chars"]'),
+      ratio: root.querySelector('[data-stat="ratio"]'),
+      vocab: root.querySelector('[data-stat="vocab"]'),
+    };
+
+    const presets = {
+      pangram: 'The quick brown fox jumps over the lazy dog.',
+      email: `Hi Sarah,
+
+Thanks for the quick turnaround on the Q3 report. I had a chance to review the draft over the weekend and have a few small suggestions before we send it to the leadership team.
+
+Could we hop on a 15-minute call tomorrow morning?
+
+Best,
+Alex`,
+      thai: 'สวัสดีครับ ผมชื่อสมชาย ผมเป็นวิศวกรซอฟต์แวร์ที่กรุงเทพมหานคร วันนี้อากาศร้อนมาก',
+      emoji: 'Shipping update 🚀✨ The team crushed it this sprint 💪🔥 Coffee ☕ helps. Next up: 🐛 fixes, then 🎉 launch! 👀👀👀',
+      code: `def fibonacci(n: int) -> int:
+    if n < 2:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)`,
+      numbers: 'Order #20260427-A2F8 totals $1,234.56 (was $1,499.99). Phone: +66 81 234 5678. ID: 2026 2027 2028 2029 2030.',
+      rare: `Common words stay whole: the cat sat on the mat.
+
+Rare words shatter into pieces:
+antidisestablishmentarianism
+pneumonoultramicroscopicsilicovolcanoconiosis
+Schwarzenegger
+Tchaikovsky
+Yingyongwatthanakit
+
+Typos shatter too: teh recieve seperate occured.
+Made-up words shatter hardest: flibbertigibbet, snorgleblat.`,
+      shouting: `please review this carefully. it is important.
+PLEASE REVIEW THIS CAREFULLY. IT IS IMPORTANT.
+
+do not delete the file.
+DO NOT delete the file.
+DO NOT DELETE THE FILE.
+
+urgent: server is down.
+URGENT: SERVER IS DOWN.`,
+    };
+
+    // Stable string-hash → 32-bit int (used as fake "ID" for char/word tokenizers).
+    const hashStr = (s) => {
+      let h = 2166136261 >>> 0;
+      for (let i = 0; i < s.length; i++) {
+        h ^= s.charCodeAt(i);
+        h = Math.imul(h, 16777619) >>> 0;
+      }
+      return h;
+    };
+
+    // --- Tokenizer strategies ---
+    // Each returns: { tokenize(text) -> [{id, text}], vocab: <number|string> }
+
+    let segmenter = null;
+    try { segmenter = new Intl.Segmenter(undefined, { granularity: 'grapheme' }); } catch (_) {}
+
+    const charTokenizer = {
+      vocab: '∞ (every Unicode grapheme)',
+      tokenize(text) {
+        const out = [];
+        if (segmenter) {
+          for (const seg of segmenter.segment(text)) out.push({ id: hashStr(seg.segment), text: seg.segment });
+        } else {
+          for (const ch of [...text]) out.push({ id: hashStr(ch), text: ch });
+        }
+        return out;
+      },
+    };
+
+    const wordTokenizer = {
+      vocab: '∞ (every distinct word/punct run)',
+      tokenize(text) {
+        // Split into runs of: word chars (incl. unicode letters/digits), punctuation, or whitespace.
+        const re = /(\p{L}[\p{L}\p{M}\p{N}'’-]*|\p{N}+|\s+|[^\s\p{L}\p{N}]+)/gu;
+        const out = [];
+        const matches = text.match(re);
+        if (!matches) return out;
+        for (const m of matches) out.push({ id: hashStr(m), text: m });
+        return out;
+      },
+    };
+
+    const bpeAdapter = (mod, vocabSize) => ({
+      vocab: vocabSize.toLocaleString() + ' (fixed BPE merges)',
+      tokenize(text) {
+        const ids = mod.encode(text);
+        return ids.map(id => ({ id, text: mod.decode([id]) }));
+      },
+    });
+
+    const tokenizers = {
+      char: charTokenizer,
+      word: wordTokenizer,
+    };
+
+    const bpeLoaders = {
+      cl100k_base: { vocab: 100277, load: () => import('https://esm.sh/gpt-tokenizer@2.5.0/encoding/cl100k_base') },
+      o200k_base:  { vocab: 200019, load: () => import('https://esm.sh/gpt-tokenizer@2.5.0/encoding/o200k_base')  },
+    };
+
+    const getTokenizer = async (name) => {
+      if (tokenizers[name]) return tokenizers[name];
+      if (bpeLoaders[name]) {
+        output.innerHTML = `<span class="tokenizer-empty">Loading ${name} from CDN…</span>`;
+        try {
+          const mod = await bpeLoaders[name].load();
+          tokenizers[name] = bpeAdapter(mod, bpeLoaders[name].vocab);
+          return tokenizers[name];
+        } catch (e) {
+          output.innerHTML = `<span class="tokenizer-empty">Couldn't load ${name} (CDN blocked?). Try Character or Word above — those run locally.</span>`;
+          return null;
+        }
+      }
+      return null;
+    };
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const hueFromId = (id) => {
+      let h = (id * 2654435761) >>> 0;
+      h = (h ^ (h >>> 16)) >>> 0;
+      return h % 360;
+    };
+
+    const renderToken = (tok, index) => {
+      const pill = document.createElement('span');
+      pill.className = 'token-pill';
+      pill.style.setProperty('--token-hue', hueFromId(tok.id));
+      if (!reduceMotion) {
+        pill.style.animationDelay = Math.min(index * 10, 700) + 'ms';
+      }
+      pill.textContent = tok.text
+        .replace(/ /g, '·')
+        .replace(/\n/g, '↵')
+        .replace(/\t/g, '→');
+      pill.title = `ID ${tok.id} · ${JSON.stringify(tok.text)}`;
+      return pill;
+    };
+
+    const render = async () => {
+      const text = input.value;
+      const name = encodingSelect.value;
+      const tk = await getTokenizer(name);
+      if (!tk) return;
+
+      output.innerHTML = '';
+      stats.vocab.textContent = tk.vocab;
+      if (!text) {
+        output.innerHTML = '<span class="tokenizer-empty">Type something above…</span>';
+        stats.tokens.textContent = '0';
+        stats.chars.textContent = '0';
+        stats.ratio.textContent = '—';
+        return;
+      }
+      const toks = tk.tokenize(text);
+      const frag = document.createDocumentFragment();
+      toks.forEach((tok, i) => frag.appendChild(renderToken(tok, i)));
+      output.appendChild(frag);
+      const charCount = [...text].length;
+      stats.tokens.textContent = toks.length;
+      stats.chars.textContent = charCount;
+      stats.ratio.textContent = toks.length ? (charCount / toks.length).toFixed(2) : '—';
+    };
+
+    let t;
+    input.addEventListener('input', () => {
+      clearTimeout(t);
+      t = setTimeout(render, 80);
+    });
+    encodingSelect.addEventListener('change', render);
+    presetBar.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-preset]');
+      if (!btn) return;
+      const preset = presets[btn.dataset.preset];
+      if (preset == null) return;
+      input.value = preset;
+      presetBar.querySelectorAll('button').forEach(b => b.classList.toggle('active', b === btn));
+      input.rows = Math.min(10, Math.max(3, preset.split('\n').length + 1));
+      render();
+    });
+
+    render();
+  })();
+</script>

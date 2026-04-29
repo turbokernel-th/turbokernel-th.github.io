@@ -1,0 +1,23 @@
+{{- $label := .Get "label" | default "Image" -}}
+{{- $desc := .Get "desc" | default "" -}}
+{{- $prompt := .Get "prompt" | default "" -}}
+{{- $aspect := .Get "aspect" | default "16/9" -}}
+<figure class="img-placeholder" style="--ph-aspect: {{ $aspect }};">
+  <div class="img-placeholder-inner">
+    <div class="img-placeholder-frame" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55">
+        <rect x="6" y="10" width="52" height="44" rx="4"/>
+        <circle cx="22" cy="26" r="4"/>
+        <path d="M58 42 L42 28 L22 48"/>
+      </svg>
+      <div class="img-placeholder-label">🖼️ {{ $label }}</div>
+    </div>
+    {{ if $desc }}<div class="img-placeholder-desc">{{ $desc }}</div>{{ end }}
+    {{ if $prompt }}
+    <details class="img-placeholder-prompt">
+      <summary>Imagen prompt (click to copy)</summary>
+      <code class="img-placeholder-prompt-text">{{ $prompt }}</code>
+    </details>
+    {{ end }}
+  </div>
+</figure>

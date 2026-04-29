@@ -1,0 +1,99 @@
+{{- $id := printf "cmp-%s" (substr (sha1 (string .Ordinal)) 0 8) -}}
+<div class="tokenizer-compare" id="{{ $id }}">
+  <div class="cmp-header">Tokens used per sentence, by strategy</div>
+  <div class="cmp-tabs" data-tabs>
+    <button type="button" data-sample="english" class="active">English</button>
+    <button type="button" data-sample="thai">Thai</button>
+    <button type="button" data-sample="code">Code</button>
+    <button type="button" data-sample="emoji">Emoji</button>
+  </div>
+  <div class="cmp-sample" data-sample-text></div>
+  <div class="cmp-bars" data-bars>
+    <div class="cmp-row"><span class="cmp-label">Character</span><div class="cmp-bar"><div class="cmp-fill" data-fill="char"></div></div><span class="cmp-count" data-count="char">…</span></div>
+    <div class="cmp-row"><span class="cmp-label">Word</span><div class="cmp-bar"><div class="cmp-fill" data-fill="word"></div></div><span class="cmp-count" data-count="word">…</span></div>
+    <div class="cmp-row"><span class="cmp-label">BPE · GPT-4</span><div class="cmp-bar"><div class="cmp-fill" data-fill="cl100k_base"></div></div><span class="cmp-count" data-count="cl100k_base">…</span></div>
+    <div class="cmp-row"><span class="cmp-label">BPE · GPT-4o</span><div class="cmp-bar"><div class="cmp-fill" data-fill="o200k_base"></div></div><span class="cmp-count" data-count="o200k_base">…</span></div>
+  </div>
+  <div class="cmp-hint">Bars are scaled to the largest count in each row group. Lower = more efficient (fewer tokens for the same meaning).</div>
+</div>
+
+<script type="module">
+  (async () => {
+    const root = document.getElementById('{{ $id }}');
+    if (!root || root.dataset.bound) return;
+    root.dataset.bound = '1';
+
+    const samples = {
+      english: 'The quick brown fox jumps over the lazy dog.',
+      thai: 'สวัสดีครับ ผมชื่อสมชาย ผมเป็นวิศวกรซอฟต์แวร์ที่กรุงเทพมหานคร',
+      code: 'def fibonacci(n): return n if n<2 else fibonacci(n-1)+fibonacci(n-2)',
+      emoji: 'Shipping update 🚀✨ Coffee ☕ helps. Next: 🐛 fixes, then 🎉 launch!',
+    };
+
+    const sampleEl = root.querySelector('[data-sample-text]');
+    const tabs = root.querySelector('[data-tabs]');
+
+    const charCount = (s) => {
+      try { return [...new Intl.Segmenter().segment(s)].length; }
+      catch { return [...s].length; }
+    };
+    const wordCount = (s) => (s.match(/(\p{L}[\p{L}\p{M}\p{N}'’-]*|\p{N}+|\s+|[^\s\p{L}\p{N}]+)/gu) || []).length;
+
+    let cl100k = null, o200k = null;
+    const counts = { char: {}, word: {}, cl100k_base: {}, o200k_base: {} };
+
+    const ensureLoaded = async () => {
+      if (!cl100k) cl100k = await import('https://esm.sh/gpt-tokenizer@2.5.0/encoding/cl100k_base');
+      if (!o200k)  o200k  = await import('https://esm.sh/gpt-tokenizer@2.5.0/encoding/o200k_base');
+    };
+
+    const compute = async () => {
+      // Char and word counts work without any network — populate first so we always have something.
+      for (const [k, text] of Object.entries(samples)) {
+        counts.char[k] = charCount(text);
+        counts.word[k] = wordCount(text);
+      }
+      try {
+        await ensureLoaded();
+        for (const [k, text] of Object.entries(samples)) {
+          counts.cl100k_base[k] = cl100k.encode(text).length;
+          counts.o200k_base[k]  = o200k.encode(text).length;
+        }
+        return true;
+      } catch (e) {
+        return false;
+      }
+    };
+
+    const render = (sample) => {
+      sampleEl.textContent = samples[sample];
+      const known = ['char','word','cl100k_base','o200k_base']
+        .map(s => counts[s][sample]).filter(v => v != null);
+      const max = Math.max(1, ...known);
+      ['char','word','cl100k_base','o200k_base'].forEach(strat => {
+        const c = counts[strat][sample];
+        root.querySelector(`[data-fill="${strat}"]`).style.width = (c == null ? 0 : (c / max * 100)) + '%';
+        root.querySelector(`[data-count="${strat}"]`).textContent = c == null ? '…' : c;
+      });
+    };
+
+    tabs.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-sample]');
+      if (!btn) return;
+      tabs.querySelectorAll('button').forEach(b => b.classList.toggle('active', b === btn));
+      render(btn.dataset.sample);
+    });
+
+    // Render char/word counts immediately so the widget never looks empty.
+    render('english');
+    const ok = await compute();
+    render('english');
+    if (!ok) {
+      const err = document.createElement('div');
+      err.className = 'cmp-hint';
+      err.style.color = 'var(--primary)';
+      err.textContent = 'BPE counts unavailable (CDN blocked). Character and word counts are still shown.';
+      root.appendChild(err);
+    }
+  })();
+</script>
