@@ -11,11 +11,11 @@ cover:
     relative: true
 ---
 
-![A magnifying glass held over printed text, revealing words shattering into glowing colored fragments underneath the lens](images/token_magnify_glass.jpeg)
-
 ถ้าคุณลองไปถาม engineer สัก 3 คนว่า token คืออะไร คุณจะได้คำตอบที่ไม่ซ้ำกันเลยครับ: "มันคือคำหนึ่งคำ", "มันคือส่วนย่อยของคำ", "มันคือตัวอักษรประมาณ 4 ตัว" จริงๆ ทั้ง 3 คำตอบนี้ก็ถูกส่วนหนึ่ง และก็ผิดส่วนหนึ่งครับ
 
 คำตอบที่จริงใจที่สุดคือ token คือ **อะไรก็ตามที่ tokenizer บอกว่าเป็นนั่นแหละครับ** — ซึ่งเจ้า tokenizer เนี่ยมันก็คือตาราง lookup ที่สร้างขึ้นมาด้วย algorithm ที่ไม่ได้สนใจเรื่องไวยากรณ์ ความหมาย หรือวิธีการที่มนุษย์อ่านหนังสือเลยแม้แต่นิดเดียว เราลองมาดูการทำงานของมันกันครับ
+
+![A magnifying glass held over printed text, revealing words shattering into glowing colored fragments underneath the lens](images/token_magnify_glass.jpeg)
 
 ## ลองเล่นด้วยตัวเอง
 

@@ -11,8 +11,6 @@ cover:
     relative: true
 ---
 
-![Anime coder opening the chest panel of a friendly robot to reveal glowing circuitry inside](images/investigate_inside.jpeg)
-
 จำตอนที่แล้วได้ไหมครับที่เราคุยกันว่า coding agent เหมือนการมี Jarvis มาเป็นผู้ช่วยส่วนตัว วันนี้ผมจะพามาแงะดูข้างในกันครับ
 
 บอกก่อนว่าเราจะยังไม่แตะโค้ดหรือติดตั้งอะไรทั้งนั้น เป้าหมายของตอนนี้คืออยากให้ทุกคนเห็นภาพว่าเบื้องหลังหน้าจอมันเกิดอะไรขึ้นเวลาเราพิมพ์สั่งงาน พอเห็นภาพรวมแล้ว คุณจะรู้สึกเลยว่าพวก agent เป็นแค่เครื่องมือที่เราควบคุมได้ ไม่ใช่เวทมนตร์อะไรครับ
@@ -23,7 +21,7 @@ cover:
 2. ทำไมแค่ LLM เพียวๆ ถึงยังไม่พอ?
 3. อะไรที่เปลี่ยน LLM ให้กลายเป็น *agent*?
 
-มาลุยกันเลย!
+![Anime coder opening the chest panel of a friendly robot to reveal glowing circuitry inside](images/investigate_inside.jpeg)
 
 ## สมอง: Large Language Model คืออะไรกันแน่?
 

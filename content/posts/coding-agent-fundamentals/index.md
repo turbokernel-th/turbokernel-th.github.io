@@ -11,8 +11,6 @@ cover:
     relative: true
 ---
 
-![Anime coder opening the chest panel of a friendly robot to reveal glowing circuitry inside](images/investigate_inside.jpeg)
-
 Last time we said a coding agent is like a personal assistant: Jarvis from *Iron Man*. Today we open the hood.
 
 We're not going to write any code, and we're not going to install anything yet. The goal is to understand what's happening behind the screen when you type a request. Once you can picture the loop, agents stop feeling like magic and start feeling like a tool you can steer.
@@ -23,7 +21,7 @@ Three questions, in order:
 2. Why does an LLM by itself fall short?
 3. What turns an LLM into an *agent*?
 
-Let's go.
+![Anime coder opening the chest panel of a friendly robot to reveal glowing circuitry inside](images/investigate_inside.jpeg)
 
 ## The brain: what's a Large Language Model?
 
