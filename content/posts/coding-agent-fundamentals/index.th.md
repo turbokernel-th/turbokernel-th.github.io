@@ -9,6 +9,7 @@ cover:
     image: "images/coder_robot_agent.jpeg"
     alt: "Anime coder opening the hood on a coding agent"
     relative: true
+    responsiveImages: false
 ---
 
 จำตอนที่แล้วได้ไหมครับที่เราคุยกันว่า coding agent เหมือนการมี Jarvis มาเป็นผู้ช่วยส่วนตัว วันนี้ผมจะพามาแงะดูข้างในกันครับ

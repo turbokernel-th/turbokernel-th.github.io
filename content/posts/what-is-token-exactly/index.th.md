@@ -9,6 +9,7 @@ cover:
     image: "images/colorful_token.jpeg"
     alt: "Colorful tokens — text shattered into glowing fragments"
     relative: true
+    responsiveImages: false
 ---
 
 ถ้าคุณลองไปถาม engineer สัก 3 คนว่า token คืออะไร คุณจะได้คำตอบที่ไม่ซ้ำกันเลยครับ: "มันคือคำหนึ่งคำ", "มันคือส่วนย่อยของคำ", "มันคือตัวอักษรประมาณ 4 ตัว" จริงๆ ทั้ง 3 คำตอบนี้ก็ถูกส่วนหนึ่ง และก็ผิดส่วนหนึ่งครับ

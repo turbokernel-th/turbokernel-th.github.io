@@ -9,6 +9,7 @@ cover:
     image: "images/colorful_token.jpeg"
     alt: "Colorful tokens — text shattered into glowing fragments"
     relative: true
+    responsiveImages: false
 ---
 
 Ask three engineers what a token is and you'll get three different answers: "a word," "a subword," "about four characters." All three are sort of right, and all three are sort of wrong.

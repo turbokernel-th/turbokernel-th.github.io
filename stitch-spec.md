@@ -1,0 +1,860 @@
+- main [ref=e5]:
+  - iframe [active] [ref=e7]:
+    - main [ref=f3e5]:
+      - iframe [ref=f3e6]:
+        - generic [active] [ref=f4e1]:
+          - link "Skip to content" [ref=f4e2] [cursor=pointer]:
+            - /url: "#_top"
+          - generic [ref=f4e3]:
+            - banner [ref=f4e4]:
+              - generic [ref=f4e5]:
+                - link "Stitch logo Stitch" [ref=f4e7] [cursor=pointer]:
+                  - /url: /docs/
+                  - img "Stitch logo" [ref=f4e8]
+                  - generic [ref=f4e9]: Stitch
+                - button "Search" [ref=f4e12] [cursor=pointer]:
+                  - img [ref=f4e13]
+                  - generic [ref=f4e15]: Search
+                  - generic [ref=f4e16]:
+                    - generic [ref=f4e17]: ⌘
+                    - generic [ref=f4e18]: K
+                - generic [ref=f4e19]:
+                  - link "X" [ref=f4e21] [cursor=pointer]:
+                    - /url: https://x.com/stitchbygoogle
+                    - generic [ref=f4e22]: X
+                    - img [ref=f4e23]
+                  - generic [ref=f4e26]:
+                    - generic [ref=f4e27]: Select theme
+                    - img
+                    - combobox "Select theme" [ref=f4e28] [cursor=pointer]:
+                      - option "Dark"
+                      - option "Light"
+                      - option "Auto" [selected]
+                    - img
+            - navigation "Main":
+              - list [ref=f4e32]:
+                - listitem [ref=f4e33]:
+                  - group [ref=f4e34]:
+                    - generic "Stitch" [ref=f4e35] [cursor=pointer]:
+                      - generic [ref=f4e36]: Stitch
+                      - img [ref=f4e37]
+                    - list [ref=f4e39]:
+                      - listitem [ref=f4e40]:
+                        - link "Everything you need to know" [ref=f4e41] [cursor=pointer]:
+                          - /url: /docs/learn/overview/
+                      - listitem [ref=f4e42]:
+                        - link "Effective Prompting" [ref=f4e43] [cursor=pointer]:
+                          - /url: /docs/learn/prompting/
+                      - listitem [ref=f4e44]:
+                        - link "Device Types" [ref=f4e45] [cursor=pointer]:
+                          - /url: /docs/learn/device-types/
+                      - listitem [ref=f4e46]:
+                        - link "Design Modes" [ref=f4e47] [cursor=pointer]:
+                          - /url: /docs/learn/design-modes/
+                      - listitem [ref=f4e48]:
+                        - link "Generate design variations" [ref=f4e49] [cursor=pointer]:
+                          - /url: /docs/learn/variants/
+                      - listitem [ref=f4e50]:
+                        - link "Controls & Hotkeys" [ref=f4e51] [cursor=pointer]:
+                          - /url: /docs/learn/controls/
+                - listitem [ref=f4e52]:
+                  - group [ref=f4e53]:
+                    - generic "MCP" [ref=f4e54] [cursor=pointer]:
+                      - generic [ref=f4e55]: MCP
+                      - img [ref=f4e56]
+                    - list [ref=f4e58]:
+                      - listitem [ref=f4e59]:
+                        - link "Setup & Authentication" [ref=f4e60] [cursor=pointer]:
+                          - /url: /docs/mcp/setup/
+                      - listitem [ref=f4e61]:
+                        - link "Guide" [ref=f4e62] [cursor=pointer]:
+                          - /url: /docs/mcp/guide/
+                      - listitem [ref=f4e63]:
+                        - link "Reference" [ref=f4e64] [cursor=pointer]:
+                          - /url: /docs/mcp/reference/
+                - listitem [ref=f4e65]:
+                  - group [ref=f4e66]:
+                    - generic "SDK" [ref=f4e67] [cursor=pointer]:
+                      - generic [ref=f4e68]: SDK
+                      - img [ref=f4e69]
+                    - list [ref=f4e71]:
+                      - listitem [ref=f4e72]:
+                        - link "Build your first design" [ref=f4e73] [cursor=pointer]:
+                          - /url: /docs/sdk/tutorial/
+                      - listitem [ref=f4e74]:
+                        - link "Use with AI SDK" [ref=f4e75] [cursor=pointer]:
+                          - /url: /docs/sdk/ai-sdk/
+                      - listitem [ref=f4e76]:
+                        - link "Agent-driven workflows" [ref=f4e77] [cursor=pointer]:
+                          - /url: /docs/sdk/agent-workflows/
+                      - listitem [ref=f4e78]:
+                        - link "How to edit a screen" [ref=f4e79] [cursor=pointer]:
+                          - /url: /docs/sdk/edit-screen/
+                      - listitem [ref=f4e80]:
+                        - link "How to generate variants" [ref=f4e81] [cursor=pointer]:
+                          - /url: /docs/sdk/generate-variants/
+                      - listitem [ref=f4e82]:
+                        - link "How to download artifacts" [ref=f4e83] [cursor=pointer]:
+                          - /url: /docs/sdk/download-artifacts/
+                      - listitem [ref=f4e84]:
+                        - link "How to extract themes" [ref=f4e85] [cursor=pointer]:
+                          - /url: /docs/sdk/extract-themes/
+                      - listitem [ref=f4e86]:
+                        - link "Reference" [ref=f4e87] [cursor=pointer]:
+                          - /url: /docs/sdk/reference/
+                      - listitem [ref=f4e88]:
+                        - link "Architecture" [ref=f4e89] [cursor=pointer]:
+                          - /url: /docs/sdk/architecture/
+                - listitem [ref=f4e90]:
+                  - group [ref=f4e91]:
+                    - generic "DESIGN.md" [ref=f4e92] [cursor=pointer]:
+                      - generic [ref=f4e93]: DESIGN.md
+                      - img [ref=f4e94]
+                    - list [ref=f4e96]:
+                      - listitem [ref=f4e97]:
+                        - link "What is DESIGN.md?" [ref=f4e98] [cursor=pointer]:
+                          - /url: /docs/design-md/overview/
+                      - listitem [ref=f4e99]:
+                        - link "The specification" [ref=f4e100] [cursor=pointer]:
+                          - /url: /docs/design-md/specification/
+                      - listitem [ref=f4e101]:
+                        - link "View, edit, and export" [ref=f4e102] [cursor=pointer]:
+                          - /url: /docs/design-md/usage/
+                      - listitem [ref=f4e103]:
+                        - link "Validate with the CLI" [ref=f4e104] [cursor=pointer]:
+                          - /url: /docs/design-md/cli/
+                      - listitem [ref=f4e105]:
+                        - link "Linting rules" [ref=f4e106] [cursor=pointer]:
+                          - /url: /docs/design-md/linting-rules/
+            - generic [ref=f4e108]:
+              - complementary [ref=f4e109]:
+                - navigation "On this page" [ref=f4e114]:
+                  - heading "On this page" [level=2] [ref=f4e115]
+                  - list [ref=f4e116]:
+                    - listitem [ref=f4e117]:
+                      - link "Overview" [ref=f4e118] [cursor=pointer]:
+                        - /url: "#_top"
+                    - listitem [ref=f4e119]:
+                      - link "Design tokens" [ref=f4e120] [cursor=pointer]:
+                        - /url: "#design-tokens"
+                      - list [ref=f4e121]:
+                        - listitem [ref=f4e122]:
+                          - link "Schema" [ref=f4e123] [cursor=pointer]:
+                            - /url: "#schema"
+                    - listitem [ref=f4e124]:
+                      - link "Token types" [ref=f4e125] [cursor=pointer]:
+                        - /url: "#token-types"
+                      - list [ref=f4e126]:
+                        - listitem [ref=f4e127]:
+                          - link "Typography properties" [ref=f4e128] [cursor=pointer]:
+                            - /url: "#typography-properties"
+                        - listitem [ref=f4e129]:
+                          - link "Token references" [ref=f4e130] [cursor=pointer]:
+                            - /url: "#token-references"
+                    - listitem [ref=f4e131]:
+                      - link "Sections" [ref=f4e132] [cursor=pointer]:
+                        - /url: "#sections"
+                      - list [ref=f4e133]:
+                        - listitem [ref=f4e134]:
+                          - link "Section order" [ref=f4e135] [cursor=pointer]:
+                            - /url: "#section-order"
+                        - listitem [ref=f4e136]:
+                          - link "Overview" [ref=f4e137] [cursor=pointer]:
+                            - /url: "#overview"
+                        - listitem [ref=f4e138]:
+                          - link "Colors" [ref=f4e139] [cursor=pointer]:
+                            - /url: "#colors"
+                        - listitem [ref=f4e140]:
+                          - link "Typography" [ref=f4e141] [cursor=pointer]:
+                            - /url: "#typography"
+                        - listitem [ref=f4e142]:
+                          - link "Layout" [ref=f4e143] [cursor=pointer]:
+                            - /url: "#layout"
+                        - listitem [ref=f4e144]:
+                          - link "Elevation & Depth" [ref=f4e145] [cursor=pointer]:
+                            - /url: "#elevation--depth"
+                        - listitem [ref=f4e146]:
+                          - link "Shapes" [ref=f4e147] [cursor=pointer]:
+                            - /url: "#shapes"
+                        - listitem [ref=f4e148]:
+                          - link "Components" [ref=f4e149] [cursor=pointer]:
+                            - /url: "#components"
+                        - listitem [ref=f4e150]:
+                          - link "Do’s and Don’ts" [ref=f4e151] [cursor=pointer]:
+                            - /url: "#dos-and-donts"
+                    - listitem [ref=f4e152]:
+                      - link "Consumer behavior for unknown content" [ref=f4e153] [cursor=pointer]:
+                        - /url: "#consumer-behavior-for-unknown-content"
+                    - listitem [ref=f4e154]:
+                      - link "Recommended token names" [ref=f4e155] [cursor=pointer]:
+                        - /url: "#recommended-token-names"
+              - main [ref=f4e157]:
+                - generic [ref=f4e160]:
+                  - paragraph [ref=f4e161]: Learn
+                  - heading "The DESIGN.md specification" [level=1] [ref=f4e162]
+                  - paragraph [ref=f4e163]: The formal specification for the DESIGN.md format — token schema, section structure, and type system.
+                - generic [ref=f4e165]:
+                  - generic [ref=f4e166]:
+                    - paragraph [ref=f4e167]:
+                      - text: A DESIGN.md file has two layers. The
+                      - strong [ref=f4e168]: YAML front matter
+                      - text: contains machine-readable design tokens — the precise values agents use to enforce consistency. The
+                      - strong [ref=f4e169]: markdown body
+                      - text: provides human-readable design rationale organized into
+                      - code [ref=f4e170]: "##"
+                      - text: sections. Prose may use descriptive color names (e.g., “Midnight Forest Green”) that correspond to systematic token names (e.g.,
+                      - code [ref=f4e171]: primary
+                      - text: ). The tokens are the normative values; the prose provides context for how to apply them.
+                    - paragraph [ref=f4e172]:
+                      - text: The spec is a
+                      - strong [ref=f4e173]: foundation, not a prescription
+                      - text: . It provides common ground that agents, tools, and teams can rely on, while preserving the freedom to extend the format for domain-specific needs.
+                    - generic [ref=f4e174]:
+                      - heading "Design tokens" [level=2] [ref=f4e175]
+                      - link "Section titled “Design tokens”" [ref=f4e176] [cursor=pointer]:
+                        - /url: "#design-tokens"
+                        - img [ref=f4e178]
+                        - generic [ref=f4e180]: Section titled “Design tokens”
+                    - paragraph [ref=f4e181]:
+                      - text: DESIGN.md embeds design tokens as YAML front matter at the beginning of the file. The front matter block must begin with a line containing exactly
+                      - code [ref=f4e182]: "---"
+                      - text: and end with a line containing exactly
+                      - code [ref=f4e183]: "---"
+                      - text: . The YAML content between these delimiters follows the schema defined below.
+                    - paragraph [ref=f4e184]:
+                      - text: The token system is inspired by the
+                      - link "W3C Design Token Format" [ref=f4e185] [cursor=pointer]:
+                        - /url: https://www.designtokens.org/
+                      - text: . Tokens are easily converted to and from
+                      - code [ref=f4e186]: tokens.json
+                      - text: ", Figma variables, and Tailwind theme configs."
+                    - figure [ref=f4e188]:
+                      - code [ref=f4e190]:
+                        - generic [ref=f4e192]: "---"
+                        - generic [ref=f4e194]: "version: alpha"
+                        - generic [ref=f4e196]: "name: Daylight Prestige"
+                        - generic [ref=f4e198]: "colors:"
+                        - generic [ref=f4e200]: "primary: \"#1A1C1E\""
+                        - generic [ref=f4e202]: "secondary: \"#6C7278\""
+                        - generic [ref=f4e204]: "tertiary: \"#B8422E\""
+                        - generic [ref=f4e206]: "typography:"
+                        - generic [ref=f4e208]: "h1:"
+                        - generic [ref=f4e210]: "fontFamily: Public Sans"
+                        - generic [ref=f4e212]: "fontSize: 48px"
+                        - generic [ref=f4e214]: "fontWeight: 600"
+                        - generic [ref=f4e216]: "lineHeight: 1.1"
+                        - generic [ref=f4e218]: "letterSpacing: -0.02em"
+                        - generic [ref=f4e220]: "rounded:"
+                        - generic [ref=f4e222]: "sm: 4px"
+                        - generic [ref=f4e224]: "md: 8px"
+                        - generic [ref=f4e226]: "spacing:"
+                        - generic [ref=f4e228]: "sm: 8px"
+                        - generic [ref=f4e230]: "md: 16px"
+                        - generic [ref=f4e232]: "components:"
+                        - generic [ref=f4e234]: "button-primary:"
+                        - generic [ref=f4e236]: "backgroundColor: \"{colors.primary-60}\""
+                        - generic [ref=f4e238]: "textColor: \"{colors.primary-20}\""
+                        - generic [ref=f4e240]: "rounded: \"{rounded.md}\""
+                        - generic [ref=f4e242]: "padding: 12px"
+                        - generic [ref=f4e244]: "---"
+                      - button "Copy to clipboard" [ref=f4e246] [cursor=pointer]
+                    - generic [ref=f4e247]:
+                      - heading "Schema" [level=3] [ref=f4e248]
+                      - link "Section titled “Schema”" [ref=f4e249] [cursor=pointer]:
+                        - /url: "#schema"
+                        - img [ref=f4e251]
+                        - generic [ref=f4e253]: Section titled “Schema”
+                    - figure [ref=f4e255]:
+                      - code [ref=f4e257]:
+                        - generic [ref=f4e259]: "version: <string> # optional, current version: \"alpha\""
+                        - generic [ref=f4e261]: "name: <string>"
+                        - generic [ref=f4e263]: "description: <string> # optional"
+                        - generic [ref=f4e265]: "colors:"
+                        - generic [ref=f4e267]: "<token-name>: <Color>"
+                        - generic [ref=f4e269]: "typography:"
+                        - generic [ref=f4e271]: "<token-name>: <Typography>"
+                        - generic [ref=f4e273]: "rounded:"
+                        - generic [ref=f4e275]: "<scale-level>: <Dimension>"
+                        - generic [ref=f4e277]: "spacing:"
+                        - generic [ref=f4e279]: "<scale-level>: <Dimension | number>"
+                        - generic [ref=f4e281]: "components:"
+                        - generic [ref=f4e283]: "<component-name>:"
+                        - generic [ref=f4e285]: "<token-name>: <string | token reference>"
+                      - button "Copy to clipboard" [ref=f4e287] [cursor=pointer]
+                    - paragraph [ref=f4e288]:
+                      - text: The
+                      - code [ref=f4e289]: <scale-level>
+                      - text: placeholder represents a named level in a sizing or spacing scale. Common level names include
+                      - code [ref=f4e290]: xs
+                      - text: ","
+                      - code [ref=f4e291]: sm
+                      - text: ","
+                      - code [ref=f4e292]: md
+                      - text: ","
+                      - code [ref=f4e293]: lg
+                      - text: ","
+                      - code [ref=f4e294]: xl
+                      - text: ", and"
+                      - code [ref=f4e295]: full
+                      - text: . Any descriptive string key is valid.
+                    - generic [ref=f4e296]:
+                      - heading "Token types" [level=2] [ref=f4e297]
+                      - link "Section titled “Token types”" [ref=f4e298] [cursor=pointer]:
+                        - /url: "#token-types"
+                        - img [ref=f4e300]
+                        - generic [ref=f4e302]: Section titled “Token types”
+                    - table [ref=f4e303]:
+                      - rowgroup [ref=f4e304]:
+                        - row "Type Format Example" [ref=f4e305]:
+                          - columnheader "Type" [ref=f4e306]
+                          - columnheader "Format" [ref=f4e307]
+                          - columnheader "Example" [ref=f4e308]
+                      - rowgroup [ref=f4e309]:
+                        - 'row "Color # + hex code (sRGB) \"#1A1C1E\"" [ref=f4e310]':
+                          - cell "Color" [ref=f4e311]:
+                            - strong [ref=f4e312]: Color
+                          - cell "# + hex code (sRGB)" [ref=f4e313]:
+                            - code [ref=f4e314]: "#"
+                            - text: + hex code (sRGB)
+                          - cell "\"#1A1C1E\"" [ref=f4e315]:
+                            - code [ref=f4e316]: "\"#1A1C1E\""
+                        - row "Dimension number + unit (px, em, rem) 48px, -0.02em" [ref=f4e317]:
+                          - cell "Dimension" [ref=f4e318]:
+                            - strong [ref=f4e319]: Dimension
+                          - cell "number + unit (px, em, rem)" [ref=f4e320]:
+                            - text: number + unit (
+                            - code [ref=f4e321]: px
+                            - text: ","
+                            - code [ref=f4e322]: em
+                            - text: ","
+                            - code [ref=f4e323]: rem
+                            - text: )
+                          - cell "48px, -0.02em" [ref=f4e324]:
+                            - code [ref=f4e325]: 48px
+                            - text: ","
+                            - code [ref=f4e326]: "-0.02em"
+                        - 'row "Token Reference {path.to.token} {colors.primary}" [ref=f4e327]':
+                          - cell "Token Reference" [ref=f4e328]:
+                            - strong [ref=f4e329]: Token Reference
+                          - 'cell "{path.to.token}" [ref=f4e330]':
+                            - code [ref=f4e331]: "{path.to.token}"
+                          - 'cell "{colors.primary}" [ref=f4e332]':
+                            - code [ref=f4e333]: "{colors.primary}"
+                        - row "Typography composite object See properties below" [ref=f4e334]:
+                          - cell "Typography" [ref=f4e335]:
+                            - strong [ref=f4e336]: Typography
+                          - cell "composite object" [ref=f4e337]
+                          - cell "See properties below" [ref=f4e338]
+                    - generic [ref=f4e339]:
+                      - heading "Typography properties" [level=3] [ref=f4e340]
+                      - link "Section titled “Typography properties”" [ref=f4e341] [cursor=pointer]:
+                        - /url: "#typography-properties"
+                        - img [ref=f4e343]
+                        - generic [ref=f4e345]: Section titled “Typography properties”
+                    - table [ref=f4e346]:
+                      - rowgroup [ref=f4e347]:
+                        - row "Property Type Description" [ref=f4e348]:
+                          - columnheader "Property" [ref=f4e349]
+                          - columnheader "Type" [ref=f4e350]
+                          - columnheader "Description" [ref=f4e351]
+                      - rowgroup [ref=f4e352]:
+                        - row "fontFamily string The font family name" [ref=f4e353]:
+                          - cell "fontFamily" [ref=f4e354]:
+                            - code [ref=f4e355]: fontFamily
+                          - cell "string" [ref=f4e356]
+                          - cell "The font family name" [ref=f4e357]
+                        - row "fontSize Dimension The font size" [ref=f4e358]:
+                          - cell "fontSize" [ref=f4e359]:
+                            - code [ref=f4e360]: fontSize
+                          - cell "Dimension" [ref=f4e361]
+                          - cell "The font size" [ref=f4e362]
+                        - row "fontWeight number Numeric weight (e.g., 400, 700). In YAML, bare numbers and quoted strings are equivalent" [ref=f4e363]:
+                          - cell "fontWeight" [ref=f4e364]:
+                            - code [ref=f4e365]: fontWeight
+                          - cell "number" [ref=f4e366]
+                          - cell "Numeric weight (e.g., 400, 700). In YAML, bare numbers and quoted strings are equivalent" [ref=f4e367]:
+                            - text: Numeric weight (e.g.,
+                            - code [ref=f4e368]: "400"
+                            - text: ","
+                            - code [ref=f4e369]: "700"
+                            - text: ). In YAML, bare numbers and quoted strings are equivalent
+                        - row "lineHeight Dimension | number A dimension (e.g., 24px) or a unitless multiplier (e.g., 1.6). Unitless is recommended" [ref=f4e370]:
+                          - cell "lineHeight" [ref=f4e371]:
+                            - code [ref=f4e372]: lineHeight
+                          - cell "Dimension | number" [ref=f4e373]
+                          - cell "A dimension (e.g., 24px) or a unitless multiplier (e.g., 1.6). Unitless is recommended" [ref=f4e374]:
+                            - text: A dimension (e.g.,
+                            - code [ref=f4e375]: 24px
+                            - text: ) or a unitless multiplier (e.g.,
+                            - code [ref=f4e376]: "1.6"
+                            - text: ). Unitless is recommended
+                        - row "letterSpacing Dimension Letter spacing adjustment" [ref=f4e377]:
+                          - cell "letterSpacing" [ref=f4e378]:
+                            - code [ref=f4e379]: letterSpacing
+                          - cell "Dimension" [ref=f4e380]
+                          - cell "Letter spacing adjustment" [ref=f4e381]
+                        - row "fontFeature string Configures font-feature-settings" [ref=f4e382]:
+                          - cell "fontFeature" [ref=f4e383]:
+                            - code [ref=f4e384]: fontFeature
+                          - cell "string" [ref=f4e385]
+                          - cell "Configures font-feature-settings" [ref=f4e386]:
+                            - text: Configures
+                            - link "font-feature-settings" [ref=f4e387] [cursor=pointer]:
+                              - /url: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-feature-settings
+                              - code [ref=f4e388]: font-feature-settings
+                        - row "fontVariation string Configures font-variation-settings" [ref=f4e389]:
+                          - cell "fontVariation" [ref=f4e390]:
+                            - code [ref=f4e391]: fontVariation
+                          - cell "string" [ref=f4e392]
+                          - cell "Configures font-variation-settings" [ref=f4e393]:
+                            - text: Configures
+                            - link "font-variation-settings" [ref=f4e394] [cursor=pointer]:
+                              - /url: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variation-settings
+                              - code [ref=f4e395]: font-variation-settings
+                    - generic [ref=f4e396]:
+                      - heading "Token references" [level=3] [ref=f4e397]
+                      - link "Section titled “Token references”" [ref=f4e398] [cursor=pointer]:
+                        - /url: "#token-references"
+                        - img [ref=f4e400]
+                        - generic [ref=f4e402]: Section titled “Token references”
+                    - paragraph [ref=f4e403]:
+                      - text: A token reference is wrapped in curly braces and contains an object path to another value in the YAML tree. For most token groups, the reference must point to a primitive value (e.g.,
+                      - code [ref=f4e404]: "{colors.primary-60}"
+                      - text: ), not a group. Within the
+                      - code [ref=f4e405]: components
+                      - text: section, references to composite values (e.g.,
+                      - code [ref=f4e406]: "{typography.label-md}"
+                      - text: ) are permitted.
+                    - figure [ref=f4e408]:
+                      - code [ref=f4e410]:
+                        - generic [ref=f4e412]: "components:"
+                        - generic [ref=f4e414]: "button-primary:"
+                        - generic [ref=f4e416]: "backgroundColor: \"{colors.primary-60}\""
+                        - generic [ref=f4e418]: "textColor: \"{colors.primary-20}\""
+                        - generic [ref=f4e420]: "rounded: \"{rounded.md}\""
+                      - button "Copy to clipboard" [ref=f4e422] [cursor=pointer]
+                    - generic [ref=f4e423]:
+                      - heading "Sections" [level=2] [ref=f4e424]
+                      - link "Section titled “Sections”" [ref=f4e425] [cursor=pointer]:
+                        - /url: "#sections"
+                        - img [ref=f4e427]
+                        - generic [ref=f4e429]: Section titled “Sections”
+                    - paragraph [ref=f4e430]:
+                      - text: Every DESIGN.md follows the same structure. Sections can be omitted if they are not relevant to the project, but those present should appear in the sequence listed below. All sections use
+                      - code [ref=f4e431]: "##"
+                      - text: headings. An optional
+                      - code [ref=f4e432]: "#"
+                      - text: heading may appear for document titling purposes but is not parsed as a section.
+                    - paragraph [ref=f4e433]: The section structure is intentionally open-ended. The canonical sections provide a shared vocabulary; design systems are free to add domain-specific sections beyond these.
+                    - generic [ref=f4e434]:
+                      - heading "Section order" [level=3] [ref=f4e435]
+                      - link "Section titled “Section order”" [ref=f4e436] [cursor=pointer]:
+                        - /url: "#section-order"
+                        - img [ref=f4e438]
+                        - generic [ref=f4e440]: Section titled “Section order”
+                    - table [ref=f4e441]:
+                      - rowgroup [ref=f4e442]:
+                        - row "# Section Aliases" [ref=f4e443]:
+                          - columnheader "#" [ref=f4e444]
+                          - columnheader "Section" [ref=f4e445]
+                          - columnheader "Aliases" [ref=f4e446]
+                      - rowgroup [ref=f4e447]:
+                        - row "1 Overview Brand & Style" [ref=f4e448]:
+                          - cell "1" [ref=f4e449]
+                          - cell "Overview" [ref=f4e450]
+                          - cell "Brand & Style" [ref=f4e451]
+                        - row "2 Colors" [ref=f4e452]:
+                          - cell "2" [ref=f4e453]
+                          - cell "Colors" [ref=f4e454]
+                          - cell [ref=f4e455]
+                        - row "3 Typography" [ref=f4e456]:
+                          - cell "3" [ref=f4e457]
+                          - cell "Typography" [ref=f4e458]
+                          - cell [ref=f4e459]
+                        - row "4 Layout Layout & Spacing" [ref=f4e460]:
+                          - cell "4" [ref=f4e461]
+                          - cell "Layout" [ref=f4e462]
+                          - cell "Layout & Spacing" [ref=f4e463]
+                        - row "5 Elevation & Depth Elevation" [ref=f4e464]:
+                          - cell "5" [ref=f4e465]
+                          - cell "Elevation & Depth" [ref=f4e466]
+                          - cell "Elevation" [ref=f4e467]
+                        - row "6 Shapes" [ref=f4e468]:
+                          - cell "6" [ref=f4e469]
+                          - cell "Shapes" [ref=f4e470]
+                          - cell [ref=f4e471]
+                        - row "7 Components" [ref=f4e472]:
+                          - cell "7" [ref=f4e473]
+                          - cell "Components" [ref=f4e474]
+                          - cell [ref=f4e475]
+                        - row "8 Do’s and Don’ts" [ref=f4e476]:
+                          - cell "8" [ref=f4e477]
+                          - cell "Do’s and Don’ts" [ref=f4e478]
+                          - cell [ref=f4e479]
+                    - generic [ref=f4e480]:
+                      - heading "Overview" [level=3] [ref=f4e481]
+                      - link "Section titled “Overview”" [ref=f4e482] [cursor=pointer]:
+                        - /url: "#overview"
+                        - img [ref=f4e484]
+                        - generic [ref=f4e486]: Section titled “Overview”
+                    - paragraph [ref=f4e487]: Also known as “Brand & Style.” A holistic description of the product’s look and feel. This section defines the brand personality, target audience, and the emotional response the UI should evoke. It serves as foundational context when a specific rule or token is not defined.
+                    - figure [ref=f4e489]:
+                      - code [ref=f4e491]:
+                        - generic [ref=f4e493]: "## Overview"
+                        - generic [ref=f4e495]: A calm, professional interface for a healthcare scheduling platform.
+                        - generic [ref=f4e497]: Accessibility-first design with high contrast and generous touch targets.
+                      - button "Copy to clipboard" [ref=f4e499] [cursor=pointer]
+                    - generic [ref=f4e500]:
+                      - heading "Colors" [level=3] [ref=f4e501]
+                      - link "Section titled “Colors”" [ref=f4e502] [cursor=pointer]:
+                        - /url: "#colors"
+                        - img [ref=f4e504]
+                        - generic [ref=f4e506]: Section titled “Colors”
+                    - paragraph [ref=f4e507]:
+                      - text: Defines the color palettes for the design system. At least the
+                      - code [ref=f4e508]: primary
+                      - text: palette should be defined. Additional palettes may be named freely; a common convention is
+                      - code [ref=f4e509]: primary
+                      - text: ","
+                      - code [ref=f4e510]: secondary
+                      - text: ","
+                      - code [ref=f4e511]: tertiary
+                      - text: ", and"
+                      - code [ref=f4e512]: neutral
+                      - text: .
+                    - figure [ref=f4e514]:
+                      - code [ref=f4e516]:
+                        - generic [ref=f4e518]: "## Colors"
+                        - generic [ref=f4e522]: The palette is rooted in high-contrast neutrals and a single accent color.
+                        - generic [ref=f4e526]: "- **Primary (#1A1C1E):** Deep ink for headlines and core text."
+                        - generic [ref=f4e528]: "- **Secondary (#6C7278):** Sophisticated slate for borders, captions, metadata."
+                        - generic [ref=f4e530]: "- **Tertiary (#B8422E):** The sole driver for interaction."
+                        - generic [ref=f4e532]: "- **Neutral (#F7F5F2):** Warm limestone foundation."
+                      - button "Copy to clipboard" [ref=f4e534] [cursor=pointer]
+                    - paragraph [ref=f4e535]:
+                      - strong [ref=f4e536]: "Design tokens:"
+                      - text: A
+                      - code [ref=f4e537]: map<string, Color>
+                      - text: mapping the token name to its hex value.
+                    - figure [ref=f4e539]:
+                      - code [ref=f4e541]:
+                        - generic [ref=f4e543]: "colors:"
+                        - generic [ref=f4e545]: "primary: \"#1A1C1E\""
+                        - generic [ref=f4e547]: "secondary: \"#6C7278\""
+                        - generic [ref=f4e549]: "tertiary: \"#B8422E\""
+                        - generic [ref=f4e551]: "neutral: \"#F7F5F2\""
+                      - button "Copy to clipboard" [ref=f4e553] [cursor=pointer]
+                    - generic [ref=f4e554]:
+                      - heading "Typography" [level=3] [ref=f4e555]
+                      - link "Section titled “Typography”" [ref=f4e556] [cursor=pointer]:
+                        - /url: "#typography"
+                        - img [ref=f4e558]
+                        - generic [ref=f4e560]: Section titled “Typography”
+                    - paragraph [ref=f4e561]: Defines typography levels. Most design systems have 9–15 levels, each with a semantic role (headline, body, label) and size variant (small, medium, large).
+                    - figure [ref=f4e563]:
+                      - code [ref=f4e565]:
+                        - generic [ref=f4e567]: "## Typography"
+                        - generic [ref=f4e571]: "- **Headlines:** Public Sans Semi-Bold for an institutional voice."
+                        - generic [ref=f4e573]: "- **Body:** Public Sans Regular at 16px for long-form readability."
+                        - generic [ref=f4e575]: "- **Labels:** Space Grotesk for technical data and metadata."
+                      - button "Copy to clipboard" [ref=f4e577] [cursor=pointer]
+                    - paragraph [ref=f4e578]:
+                      - strong [ref=f4e579]: "Design tokens:"
+                      - text: A
+                      - code [ref=f4e580]: map<string, Typography>
+                      - text: mapping the token name to its typography properties.
+                    - figure [ref=f4e582]:
+                      - code [ref=f4e584]:
+                        - generic [ref=f4e586]: "typography:"
+                        - generic [ref=f4e588]: "h1:"
+                        - generic [ref=f4e590]: "fontFamily: Public Sans"
+                        - generic [ref=f4e592]: "fontSize: 48px"
+                        - generic [ref=f4e594]: "fontWeight: 600"
+                        - generic [ref=f4e596]: "lineHeight: 1.1"
+                        - generic [ref=f4e598]: "letterSpacing: -0.02em"
+                        - generic [ref=f4e600]: "body-md:"
+                        - generic [ref=f4e602]: "fontFamily: Public Sans"
+                        - generic [ref=f4e604]: "fontSize: 16px"
+                        - generic [ref=f4e606]: "fontWeight: 400"
+                        - generic [ref=f4e608]: "lineHeight: 1.6"
+                        - generic [ref=f4e610]: "label-caps:"
+                        - generic [ref=f4e612]: "fontFamily: Space Grotesk"
+                        - generic [ref=f4e614]: "fontSize: 12px"
+                        - generic [ref=f4e616]: "fontWeight: 500"
+                        - generic [ref=f4e618]: "lineHeight: 1"
+                        - generic [ref=f4e620]: "letterSpacing: 0.1em"
+                      - button "Copy to clipboard" [ref=f4e622] [cursor=pointer]
+                    - generic [ref=f4e623]:
+                      - heading "Layout" [level=3] [ref=f4e624]
+                      - link "Section titled “Layout”" [ref=f4e625] [cursor=pointer]:
+                        - /url: "#layout"
+                        - img [ref=f4e627]
+                        - generic [ref=f4e629]: Section titled “Layout”
+                    - paragraph [ref=f4e630]: Also known as “Layout & Spacing.” Describes the layout and spacing strategy — grid models, spacing scales, and containment principles.
+                    - figure [ref=f4e632]:
+                      - code [ref=f4e634]:
+                        - generic [ref=f4e636]: "## Layout"
+                        - generic [ref=f4e640]: The layout follows a Fluid Grid model for mobile and a Fixed-Max-Width
+                        - generic [ref=f4e642]: Grid for desktop (max 1200px). A strict 8px spacing scale is used.
+                      - button "Copy to clipboard" [ref=f4e644] [cursor=pointer]
+                    - paragraph [ref=f4e645]:
+                      - strong [ref=f4e646]: "Design tokens:"
+                      - text: A
+                      - code [ref=f4e647]: map<string, Dimension | number>
+                      - text: mapping the spacing scale identifier to a dimension or unitless number (e.g., column counts or ratios).
+                    - figure [ref=f4e649]:
+                      - code [ref=f4e651]:
+                        - generic [ref=f4e653]: "spacing:"
+                        - generic [ref=f4e655]: "base: 16px"
+                        - generic [ref=f4e657]: "xs: 4px"
+                        - generic [ref=f4e659]: "sm: 8px"
+                        - generic [ref=f4e661]: "md: 16px"
+                        - generic [ref=f4e663]: "lg: 32px"
+                        - generic [ref=f4e665]: "xl: 64px"
+                        - generic [ref=f4e667]: "gutter: 24px"
+                        - generic [ref=f4e669]: "margin: 32px"
+                      - button "Copy to clipboard" [ref=f4e671] [cursor=pointer]
+                    - generic [ref=f4e672]:
+                      - heading "Elevation & Depth" [level=3] [ref=f4e673]
+                      - link "Section titled “Elevation & Depth”" [ref=f4e674] [cursor=pointer]:
+                        - /url: "#elevation--depth"
+                        - img [ref=f4e676]
+                        - generic [ref=f4e678]: Section titled “Elevation & Depth”
+                    - paragraph [ref=f4e679]: Also known as “Elevation.” Describes how visual hierarchy is conveyed. For designs that use shadows, it defines the shadow properties. For flat designs, it explains the alternative methods (borders, tonal layers, color contrast).
+                    - figure [ref=f4e681]:
+                      - code [ref=f4e683]:
+                        - generic [ref=f4e685]: "## Elevation & Depth"
+                        - generic [ref=f4e689]: Depth is achieved through tonal layers rather than heavy shadows.
+                        - generic [ref=f4e691]: Background uses a soft off-white; primary content sits on pure white cards.
+                      - button "Copy to clipboard" [ref=f4e693] [cursor=pointer]
+                    - generic [ref=f4e694]:
+                      - heading "Shapes" [level=3] [ref=f4e695]
+                      - link "Section titled “Shapes”" [ref=f4e696] [cursor=pointer]:
+                        - /url: "#shapes"
+                        - img [ref=f4e698]
+                        - generic [ref=f4e700]: Section titled “Shapes”
+                    - paragraph [ref=f4e701]: Describes how visual elements are shaped — corner radii, edge treatments, and the overall shape language.
+                    - figure [ref=f4e703]:
+                      - code [ref=f4e705]:
+                        - generic [ref=f4e707]: "## Shapes"
+                        - generic [ref=f4e711]: All interactive elements use a minimal 4px corner radius.
+                        - generic [ref=f4e713]: Modern enough to feel current, rigid enough to feel engineered.
+                      - button "Copy to clipboard" [ref=f4e715] [cursor=pointer]
+                    - paragraph [ref=f4e716]:
+                      - strong [ref=f4e717]: "Design tokens:"
+                      - text: A
+                      - code [ref=f4e718]: map<string, Dimension>
+                      - text: mapping the scale level to the corner radius.
+                    - figure [ref=f4e720]:
+                      - code [ref=f4e722]:
+                        - generic [ref=f4e724]: "rounded:"
+                        - generic [ref=f4e726]: "sm: 4px"
+                        - generic [ref=f4e728]: "md: 8px"
+                        - generic [ref=f4e730]: "lg: 12px"
+                        - generic [ref=f4e732]: "full: 9999px"
+                      - button "Copy to clipboard" [ref=f4e734] [cursor=pointer]
+                    - generic [ref=f4e735]:
+                      - heading "Components" [level=3] [ref=f4e736]
+                      - link "Section titled “Components”" [ref=f4e737] [cursor=pointer]:
+                        - /url: "#components"
+                        - img [ref=f4e739]
+                        - generic [ref=f4e741]: Section titled “Components”
+                    - paragraph [ref=f4e742]: Style guidance for component atoms. The spec defines common component types — Buttons, Chips, Lists, Inputs, Checkboxes, Radio buttons, Tooltips — but design systems are encouraged to define additional components relevant to their domain.
+                    - figure [ref=f4e744]:
+                      - code [ref=f4e746]:
+                        - generic [ref=f4e748]: "## Components"
+                        - generic [ref=f4e750]: "- **Buttons**: Rounded (8px), primary uses brand blue fill, secondary uses outline"
+                        - generic [ref=f4e752]: "- **Inputs**: 1px border, surface-variant background, 12px padding"
+                        - generic [ref=f4e754]: "- **Cards**: No elevation, 1px outline border, 12px corner radius"
+                      - button "Copy to clipboard" [ref=f4e756] [cursor=pointer]
+                    - paragraph [ref=f4e757]:
+                      - strong [ref=f4e758]: "Design tokens:"
+                      - text: A
+                      - code [ref=f4e759]: map<string, map<string, string>>
+                      - text: mapping a component identifier to a group of sub-token properties. Token values may be literal values or references to previously defined tokens.
+                    - paragraph [ref=f4e760]:
+                      - strong [ref=f4e761]: Variants.
+                      - text: A component may have variants for different UI states (hover, active, pressed). Variants are defined as separate component entries with a related key name.
+                    - figure [ref=f4e763]:
+                      - code [ref=f4e765]:
+                        - generic [ref=f4e767]: "components:"
+                        - generic [ref=f4e769]: "button-primary:"
+                        - generic [ref=f4e771]: "backgroundColor: \"{colors.primary-60}\""
+                        - generic [ref=f4e773]: "textColor: \"{colors.primary-20}\""
+                        - generic [ref=f4e775]: "rounded: \"{rounded.md}\""
+                        - generic [ref=f4e777]: "padding: 12px"
+                        - generic [ref=f4e779]: "button-primary-hover:"
+                        - generic [ref=f4e781]: "backgroundColor: \"{colors.primary-70}\""
+                      - button "Copy to clipboard" [ref=f4e783] [cursor=pointer]
+                    - generic [ref=f4e784]:
+                      - heading "Component property tokens" [level=4] [ref=f4e785]
+                      - link "Section titled “Component property tokens”" [ref=f4e786] [cursor=pointer]:
+                        - /url: "#component-property-tokens"
+                        - img [ref=f4e788]
+                        - generic [ref=f4e790]: Section titled “Component property tokens”
+                    - table [ref=f4e791]:
+                      - rowgroup [ref=f4e792]:
+                        - row "Property Type" [ref=f4e793]:
+                          - columnheader "Property" [ref=f4e794]
+                          - columnheader "Type" [ref=f4e795]
+                      - rowgroup [ref=f4e796]:
+                        - row "backgroundColor Color" [ref=f4e797]:
+                          - cell "backgroundColor" [ref=f4e798]:
+                            - code [ref=f4e799]: backgroundColor
+                          - cell "Color" [ref=f4e800]
+                        - row "textColor Color" [ref=f4e801]:
+                          - cell "textColor" [ref=f4e802]:
+                            - code [ref=f4e803]: textColor
+                          - cell "Color" [ref=f4e804]
+                        - row "typography Typography" [ref=f4e805]:
+                          - cell "typography" [ref=f4e806]:
+                            - code [ref=f4e807]: typography
+                          - cell "Typography" [ref=f4e808]
+                        - row "rounded Dimension" [ref=f4e809]:
+                          - cell "rounded" [ref=f4e810]:
+                            - code [ref=f4e811]: rounded
+                          - cell "Dimension" [ref=f4e812]
+                        - row "padding Dimension" [ref=f4e813]:
+                          - cell "padding" [ref=f4e814]:
+                            - code [ref=f4e815]: padding
+                          - cell "Dimension" [ref=f4e816]
+                        - row "size Dimension" [ref=f4e817]:
+                          - cell "size" [ref=f4e818]:
+                            - code [ref=f4e819]: size
+                          - cell "Dimension" [ref=f4e820]
+                        - row "height Dimension" [ref=f4e821]:
+                          - cell "height" [ref=f4e822]:
+                            - code [ref=f4e823]: height
+                          - cell "Dimension" [ref=f4e824]
+                        - row "width Dimension" [ref=f4e825]:
+                          - cell "width" [ref=f4e826]:
+                            - code [ref=f4e827]: width
+                          - cell "Dimension" [ref=f4e828]
+                    - generic [ref=f4e829]:
+                      - heading "Do’s and Don’ts" [level=3] [ref=f4e830]
+                      - link "Section titled “Do’s and Don’ts”" [ref=f4e831] [cursor=pointer]:
+                        - /url: "#dos-and-donts"
+                        - img [ref=f4e833]
+                        - generic [ref=f4e835]: Section titled “Do’s and Don’ts”
+                    - paragraph [ref=f4e836]: Practical guidelines and common pitfalls. These act as guardrails during generation.
+                    - figure [ref=f4e838]:
+                      - code [ref=f4e840]:
+                        - generic [ref=f4e842]: "## Do's and Don'ts"
+                        - generic [ref=f4e846]: "- Do use the primary color only for the single most important action per screen"
+                        - generic [ref=f4e848]: "- Don't mix rounded and sharp corners in the same view"
+                        - generic [ref=f4e850]: "- Do maintain WCAG AA contrast ratios (4.5:1 for normal text)"
+                        - generic [ref=f4e852]: "- Don't use more than two font weights on a single screen"
+                      - button "Copy to clipboard" [ref=f4e854] [cursor=pointer]
+                    - generic [ref=f4e855]:
+                      - heading "Consumer behavior for unknown content" [level=2] [ref=f4e856]
+                      - link "Section titled “Consumer behavior for unknown content”" [ref=f4e857] [cursor=pointer]:
+                        - /url: "#consumer-behavior-for-unknown-content"
+                        - img [ref=f4e859]
+                        - generic [ref=f4e861]: Section titled “Consumer behavior for unknown content”
+                    - paragraph [ref=f4e862]: "The spec is designed to be extended. When a consumer encounters content not defined by this specification:"
+                    - table [ref=f4e863]:
+                      - rowgroup [ref=f4e864]:
+                        - row "Scenario Behavior Example" [ref=f4e865]:
+                          - columnheader "Scenario" [ref=f4e866]
+                          - columnheader "Behavior" [ref=f4e867]
+                          - columnheader "Example" [ref=f4e868]
+                      - rowgroup [ref=f4e869]:
+                        - 'row "Unknown section heading Preserve; do not error ## Iconography" [ref=f4e870]':
+                          - cell "Unknown section heading" [ref=f4e871]
+                          - cell "Preserve; do not error" [ref=f4e872]
+                          - cell "## Iconography" [ref=f4e873]:
+                            - code [ref=f4e874]: "## Iconography"
+                        - 'row "Unknown color token name Accept if value is valid surface-container-high: ''#ede7dd''" [ref=f4e875]':
+                          - cell "Unknown color token name" [ref=f4e876]
+                          - cell "Accept if value is valid" [ref=f4e877]
+                          - 'cell "surface-container-high: ''#ede7dd''" [ref=f4e878]':
+                            - code [ref=f4e879]: "surface-container-high: '#ede7dd'"
+                        - row "Unknown typography token name Accept as valid typography telemetry-data" [ref=f4e880]:
+                          - cell "Unknown typography token name" [ref=f4e881]
+                          - cell "Accept as valid typography" [ref=f4e882]
+                          - cell "telemetry-data" [ref=f4e883]:
+                            - code [ref=f4e884]: telemetry-data
+                        - 'row "Unknown spacing value Accept; store as string if not a valid dimension grid-columns: ''5''" [ref=f4e885]':
+                          - cell "Unknown spacing value" [ref=f4e886]
+                          - cell "Accept; store as string if not a valid dimension" [ref=f4e887]
+                          - 'cell "grid-columns: ''5''" [ref=f4e888]':
+                            - code [ref=f4e889]: "grid-columns: '5'"
+                        - row "Unknown component property Accept with warning borderColor" [ref=f4e890]:
+                          - cell "Unknown component property" [ref=f4e891]
+                          - cell "Accept with warning" [ref=f4e892]
+                          - cell "borderColor" [ref=f4e893]:
+                            - code [ref=f4e894]: borderColor
+                        - 'row "Duplicate section heading Error; reject the file Two ## Colors headings" [ref=f4e895]':
+                          - cell "Duplicate section heading" [ref=f4e896]
+                          - cell "Error; reject the file" [ref=f4e897]
+                          - 'cell "Two ## Colors headings" [ref=f4e898]':
+                            - text: Two
+                            - code [ref=f4e899]: "## Colors"
+                            - text: headings
+                    - generic [ref=f4e900]:
+                      - heading "Recommended token names" [level=2] [ref=f4e901]
+                      - link "Section titled “Recommended token names”" [ref=f4e902] [cursor=pointer]:
+                        - /url: "#recommended-token-names"
+                        - img [ref=f4e904]
+                        - generic [ref=f4e906]: Section titled “Recommended token names”
+                    - paragraph [ref=f4e907]: The following names are commonly used across design systems. They are not required but are provided as guidance for consistency.
+                    - paragraph [ref=f4e908]:
+                      - strong [ref=f4e909]: "Colors:"
+                      - code [ref=f4e910]: primary
+                      - text: ","
+                      - code [ref=f4e911]: secondary
+                      - text: ","
+                      - code [ref=f4e912]: tertiary
+                      - text: ","
+                      - code [ref=f4e913]: neutral
+                      - text: ","
+                      - code [ref=f4e914]: surface
+                      - text: ","
+                      - code [ref=f4e915]: on-surface
+                      - text: ","
+                      - code [ref=f4e916]: error
+                    - paragraph [ref=f4e917]:
+                      - strong [ref=f4e918]: "Typography:"
+                      - code [ref=f4e919]: headline-display
+                      - text: ","
+                      - code [ref=f4e920]: headline-lg
+                      - text: ","
+                      - code [ref=f4e921]: headline-md
+                      - text: ","
+                      - code [ref=f4e922]: body-lg
+                      - text: ","
+                      - code [ref=f4e923]: body-md
+                      - text: ","
+                      - code [ref=f4e924]: body-sm
+                      - text: ","
+                      - code [ref=f4e925]: label-lg
+                      - text: ","
+                      - code [ref=f4e926]: label-md
+                      - text: ","
+                      - code [ref=f4e927]: label-sm
+                    - paragraph [ref=f4e928]:
+                      - strong [ref=f4e929]: "Rounded:"
+                      - code [ref=f4e930]: none
+                      - text: ","
+                      - code [ref=f4e931]: sm
+                      - text: ","
+                      - code [ref=f4e932]: md
+                      - text: ","
+                      - code [ref=f4e933]: lg
+                      - text: ","
+                      - code [ref=f4e934]: xl
+                      - text: ","
+                      - code [ref=f4e935]: full
+                  - generic [ref=f4e937]:
+                    - link "Previous What is DESIGN.md?" [ref=f4e938] [cursor=pointer]:
+                      - /url: /docs/design-md/overview/
+                      - img [ref=f4e939]
+                      - generic [ref=f4e941]:
+                        - text: Previous
+                        - text: What is DESIGN.md?
+                    - link "Next View, edit, and export" [ref=f4e942] [cursor=pointer]:
+                      - /url: /docs/design-md/usage/
+                      - img [ref=f4e943]
+                      - generic [ref=f4e945]:
+                        - text: Next
+                        - text: View, edit, and export

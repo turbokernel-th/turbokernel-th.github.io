@@ -9,6 +9,7 @@ cover:
     image: "images/coder_robot_agent.jpeg"
     alt: "Anime coder opening the hood on a coding agent"
     relative: true
+    responsiveImages: false
 ---
 
 Last time we said a coding agent is like a personal assistant: Jarvis from *Iron Man*. Today we open the hood.
