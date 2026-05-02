@@ -1094,26 +1094,9 @@ body.dark .post-content img[style*="border: 1px solid #ccc"] {
    Tokenizer Widget
    ----------------------------------------- */
 
-.tokenizer-widget {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px;
-    margin: 28px 0;
-    background: var(--entry);
-}
-
-.tokenizer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    font-size: 14px;
-}
-
-.tokenizer-header label {
-    font-weight: 600;
-    color: var(--primary);
-}
+/* Chrome (.widget, .widget-header) lives in Primitives.
+   Preset buttons use .chip; this block defines only what's unique
+   to the tokenizer (the input, output, stats, hint, and select). */
 
 .tokenizer-encoding-select {
     font-family: var(--font-family-code);
@@ -1134,31 +1117,8 @@ body.dark .post-content img[style*="border: 1px solid #ccc"] {
 .tokenizer-presets {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin: 0 0 10px 0;
-}
-
-.tokenizer-presets button {
-    font-family: var(--font-family-base);
-    font-size: 12px;
-    padding: 4px 10px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: transparent;
-    color: var(--secondary);
-    cursor: pointer;
-    transition: all 0.15s ease;
-}
-
-.tokenizer-presets button:hover {
-    color: var(--primary);
-    border-color: var(--secondary);
-}
-
-.tokenizer-presets button.active {
-    background: var(--primary);
-    color: var(--theme);
-    border-color: var(--primary);
+    gap: var(--space-xs);
+    margin: 0 0 var(--space-sm) 0;
 }
 
 .tokenizer-input {

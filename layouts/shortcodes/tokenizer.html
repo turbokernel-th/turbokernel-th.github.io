@@ -1,7 +1,7 @@
 {{- $id := printf "tok-%s" (substr (sha1 (string .Ordinal)) 0 8) -}}
-<div class="tokenizer-widget" id="{{ $id }}">
-  <div class="tokenizer-header">
-    <label>Type to tokenize</label>
+<div class="widget tokenizer-widget" id="{{ $id }}">
+  <div class="widget-header">
+    <label class="widget-header__title">Type to tokenize</label>
     <select class="tokenizer-encoding-select" data-encoding>
       <optgroup label="Character-level">
         <option value="char">Character (every grapheme)</option>
@@ -17,14 +17,14 @@
   </div>
 
   <div class="tokenizer-presets" data-presets>
-    <button type="button" data-preset="pangram">Pangram</button>
-    <button type="button" data-preset="email">Email draft</button>
-    <button type="button" data-preset="thai">Thai</button>
-    <button type="button" data-preset="emoji">Emojis</button>
-    <button type="button" data-preset="code">Code</button>
-    <button type="button" data-preset="numbers">Numbers</button>
-    <button type="button" data-preset="shouting">SHOUTING</button>
-    <button type="button" data-preset="rare">Rare words</button>
+    <button type="button" class="chip" data-preset="pangram">Pangram</button>
+    <button type="button" class="chip" data-preset="email">Email draft</button>
+    <button type="button" class="chip" data-preset="thai">Thai</button>
+    <button type="button" class="chip" data-preset="emoji">Emojis</button>
+    <button type="button" class="chip" data-preset="code">Code</button>
+    <button type="button" class="chip" data-preset="numbers">Numbers</button>
+    <button type="button" class="chip" data-preset="shouting">SHOUTING</button>
+    <button type="button" class="chip" data-preset="rare">Rare words</button>
   </div>
 
   <textarea
@@ -238,7 +238,7 @@ URGENT: SERVER IS DOWN.`,
       const preset = presets[btn.dataset.preset];
       if (preset == null) return;
       input.value = preset;
-      presetBar.querySelectorAll('button').forEach(b => b.classList.toggle('active', b === btn));
+      presetBar.querySelectorAll('button').forEach(b => b.classList.toggle('chip--active', b === btn));
       input.rows = Math.min(10, Math.max(3, preset.split('\n').length + 1));
       render();
     });
