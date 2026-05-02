@@ -1,11 +1,13 @@
 {{- $id := printf "cmp-%s" (substr (sha1 (string .Ordinal)) 0 8) -}}
-<div class="tokenizer-compare" id="{{ $id }}">
-  <div class="cmp-header">Tokens used per sentence, by strategy</div>
+<div class="widget tokenizer-compare" id="{{ $id }}">
+  <div class="widget-header">
+    <div class="widget-header__title">Tokens used per sentence, by strategy</div>
+  </div>
   <div class="cmp-tabs" data-tabs>
-    <button type="button" data-sample="english" class="active">English</button>
-    <button type="button" data-sample="thai">Thai</button>
-    <button type="button" data-sample="code">Code</button>
-    <button type="button" data-sample="emoji">Emoji</button>
+    <button type="button" class="chip chip--active" data-sample="english">English</button>
+    <button type="button" class="chip" data-sample="thai">Thai</button>
+    <button type="button" class="chip" data-sample="code">Code</button>
+    <button type="button" class="chip" data-sample="emoji">Emoji</button>
   </div>
   <div class="cmp-sample" data-sample-text></div>
   <div class="cmp-bars" data-bars>
@@ -80,7 +82,7 @@
     tabs.addEventListener('click', (e) => {
       const btn = e.target.closest('[data-sample]');
       if (!btn) return;
-      tabs.querySelectorAll('button').forEach(b => b.classList.toggle('active', b === btn));
+      tabs.querySelectorAll('button').forEach(b => b.classList.toggle('chip--active', b === btn));
       render(btn.dataset.sample);
     });
 

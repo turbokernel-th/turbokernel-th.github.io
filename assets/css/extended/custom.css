@@ -1432,42 +1432,16 @@ body.dark .token-pill {
 
 /* -----------------------------------------
    Tokenizer Comparison Bars
+   Chrome (.widget, .widget-header, .chip) lives in Primitives section.
+   This block defines only what's unique to the bar-chart layout.
    ----------------------------------------- */
-
-.tokenizer-compare {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px;
-    margin: 28px 0;
-    background: var(--entry);
-}
-
-.cmp-header {
-    font-weight: 600;
-    color: var(--primary);
-    margin-bottom: 10px;
-}
 
 .cmp-tabs {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 12px;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
 }
-
-.cmp-tabs button {
-    font-family: var(--font-family-base);
-    font-size: 12px;
-    padding: 4px 10px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: transparent;
-    color: var(--secondary);
-    cursor: pointer;
-}
-
-.cmp-tabs button:hover { color: var(--primary); border-color: var(--secondary); }
-.cmp-tabs button.active { background: var(--primary); color: var(--theme); border-color: var(--primary); }
 
 .cmp-sample {
     font-family: var(--font-family-code);
