@@ -1,11 +1,11 @@
 {{- $id := printf "bpe-%s" (substr (sha1 (string .Ordinal)) 0 8) -}}
-<div class="bpe-merge" id="{{ $id }}">
-  <div class="bpe-header">
-    <div class="bpe-title">Watch BPE build a token</div>
-    <div class="bpe-controls">
-      <button type="button" data-act="reset" aria-label="Reset" title="Reset">↺</button>
-      <button type="button" data-act="step" aria-label="Step forward">Step ▸</button>
-      <button type="button" data-act="play" aria-label="Play">Play ▶</button>
+<div class="widget bpe-merge" id="{{ $id }}">
+  <div class="widget-header">
+    <div class="widget-header__title">Watch BPE build a token</div>
+    <div class="widget-header__controls">
+      <button type="button" class="chip chip--square chip--ghost" data-act="reset" aria-label="Reset" title="Reset">↺</button>
+      <button type="button" class="chip chip--square chip--ghost" data-act="step" aria-label="Step forward">Step ▸</button>
+      <button type="button" class="chip chip--square chip--ghost" data-act="play" aria-label="Play">Play ▶</button>
     </div>
   </div>
   <div class="bpe-corpus">Toy corpus: <code>"low lowest newest"</code> — three words that share the chunks <code>low</code>, <code>est</code>, and <code>new</code>. Watch BPE rediscover them by frequency alone.</div>

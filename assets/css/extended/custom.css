@@ -1247,47 +1247,8 @@ body.dark .token-pill {
    BPE Merge Animation
    ----------------------------------------- */
 
-.bpe-merge {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px;
-    margin: 28px 0;
-    background: var(--entry);
-}
-
-.bpe-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 6px;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.bpe-title {
-    font-weight: 600;
-    color: var(--primary);
-}
-
-.bpe-controls {
-    display: flex;
-    gap: 6px;
-}
-
-.bpe-controls button {
-    font-family: var(--font-family-base);
-    font-size: 13px;
-    padding: 4px 12px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background: transparent;
-    color: var(--primary);
-    cursor: pointer;
-}
-
-.bpe-controls button:hover {
-    border-color: var(--secondary);
-}
+/* Chrome (.widget, .widget-header) lives in Primitives.
+   Controls are .chip.chip--square.chip--ghost. */
 
 .bpe-corpus {
     font-size: 13px;
