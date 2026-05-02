@@ -20,6 +20,7 @@ Add a new one whenever a directory accumulates rules >~150 words that don't appl
 Topic guides at the repo root (read on demand):
 
 - `DESIGN.md` — design system spec (Stitch format).
+- `GIT_GUIDE.md` — commit message format (Conventional Commits, no emoji), commit granularity rules.
 
 ## Build & Development
 
