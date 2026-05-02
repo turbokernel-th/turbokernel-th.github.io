@@ -2,6 +2,25 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Working agreement — keep this file lean
+
+When finishing any non-trivial task:
+
+1. **Update this root `CLAUDE.md`** if the change affected architecture, conventions, or the design system in ways future sessions need to know about. Stale facts (e.g. line counts, file paths that moved, removed components) get fixed in the same commit.
+2. **Refactor toward locality.** If a piece of guidance only applies to one directory (e.g. CSS-only rules, shortcode-only conventions), move it into a directory-local `CLAUDE.md` and leave a one-line pointer here under "Subdirectory references". The harness loads local `CLAUDE.md` files on demand, so locality = less context spent per session.
+3. **One source of truth.** If a fact lives in `/DESIGN.md` or a directory `CLAUDE.md`, don't duplicate it here — link to it. Duplication rots.
+
+Existing directory `CLAUDE.md` files:
+
+- `assets/css/extended/CLAUDE.md` — CSS tokens, primitives, edit rules.
+- `layouts/shortcodes/CLAUDE.md` — shortcode authoring conventions.
+
+Add a new one whenever a directory accumulates rules >~150 words that don't apply elsewhere.
+
+Topic guides at the repo root (read on demand):
+
+- `DESIGN.md` — design system spec (Stitch format).
+
 ## Build & Development
 
 ```bash
@@ -25,11 +44,21 @@ python3 scripts/convert_notebook.py path/to/notebook.ipynb
 
 **Implementation lives in `assets/css/extended/custom.css`** — all tokens are defined as CSS variables in `:root` (and dark-mode overrides in `body.dark`). Every component below the token block consumes them via `var(--brand)`, `var(--role-think)`, `var(--space-md)`, `var(--radius-lg)`, etc. Hardcoded `rgb()`, `rgba()`, or `#hex` outside the token block is a system violation — fix it, don't add another.
 
+The token block also defines typography (`--text-{xs..2xl}`), motion (`--transition-{fast,base,slow}`), and shadow (`--shadow-{sm,md,modal}`) scales — use those instead of magic values.
+
+**Primitives** (`assets/css/extended/custom.css` — "Primitives" section): `.widget`, `.widget-header`, `.chip`, `.role-step`. Compose these into widget-specific classes via compound selectors (`<div class="widget react-loop">`) so each widget only carries CSS for what's unique to it. The `tokenizer-compare` shortcode is the reference migration — copy its pattern when authoring new dynamic-viz shortcodes.
+
 When adding a new component, post, or shortcode:
 1. Read `/DESIGN.md` for the relevant section (Colors, Layout, Components, Do's & Don'ts).
-2. Use existing tokens. If a needed value doesn't exist, add a token to `:root` first, document it in DESIGN.md, then use it.
-3. Inline SVG inside Markdown can reference CSS variables: `fill="var(--role-think)"`, `stroke="var(--brand)"` — the variable resolves at render time.
-4. Verify both light and dark mode at desktop and mobile widths before declaring done.
+2. Compose the primitives above before writing custom CSS. Only add widget-specific rules for what's truly unique.
+3. Use existing tokens. If a needed value doesn't exist, add a token to `:root` first, document it in DESIGN.md, then use it.
+4. Inline SVG inside Markdown can reference CSS variables: `fill="var(--role-think)"`, `stroke="var(--brand)"` — the variable resolves at render time.
+5. Verify both light and dark mode at desktop and mobile widths before declaring done.
+
+### Subdirectory references (load on demand for harness efficiency)
+
+- **`assets/css/extended/CLAUDE.md`** — read when editing `custom.css`: token map, primitives reference, hardcode-color audit command, light/dark validation steps.
+- **`layouts/shortcodes/CLAUDE.md`** — read when authoring or modifying shortcodes: existing shortcode list, authoring conventions, primitive composition pattern, accessibility checklist.
 
 ## Architecture
 
@@ -50,7 +79,7 @@ PaperMod provides base layouts. This repo overrides specific templates in `layou
 
 ### CSS
 
-All custom styles live in `assets/css/extended/custom.css` (1177 lines) — PaperMod auto-includes files from this directory. Key systems:
+All custom styles live in `assets/css/extended/custom.css` — PaperMod auto-includes files from this directory. See `assets/css/extended/CLAUDE.md` for the token map, primitives, and edit conventions. Key systems:
 
 - **Content width**: `--main-width: 1000px` (wider than PaperMod default for data tables/code)
 - **Booktabs tables**: Scientific-style with no vertical borders, thick top/bottom rules. JS auto-wraps tables for horizontal scroll and hides pandas DataFrame index columns (`.has-index` class). DataFrames with 8+ rows get `.tall-table` (max-height 600px, scrollable). Long cells (>300 chars) get `.cell-scroll` (max-height 200px, scrollable).
