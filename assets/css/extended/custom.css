@@ -375,7 +375,7 @@ body.dark table tbody tr:hover {
     padding-top: 10vh;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.2s, visibility 0.2s;
+    transition: opacity var(--transition-base), visibility var(--transition-base);
 }
 
 #search-modal.open {
@@ -387,8 +387,8 @@ body.dark table tbody tr:hover {
     background: var(--entry);
     width: 600px;
     max-width: 90%;
-    border-radius: 12px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-modal);
     border: 1px solid var(--border);
     display: flex;
     flex-direction: column;
@@ -506,11 +506,11 @@ nav a[href$="#search"] {
     align-items: center !important;
     background-color: var(--tint-10) !important;
     border: 1px solid var(--border) !important;
-    border-radius: 8px !important;
+    border-radius: var(--radius-md) !important;
     padding: 4px 12px !important;
-    font-size: 14px !important;
+    font-size: var(--text-base) !important;
     color: var(--secondary) !important;
-    transition: all 0.2s ease !important;
+    transition: all var(--transition-base) !important;
     height: 34px !important;
     box-sizing: border-box !important;
     margin-left: 15px !important;
@@ -569,7 +569,7 @@ body.dark nav a[href$="#search"]::before {
 
 .search-hint-key {
     border: 1px solid var(--border);
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     padding: 1px 5px;
     font-size: 11px;
     color: var(--secondary);
