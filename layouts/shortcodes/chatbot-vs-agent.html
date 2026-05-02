@@ -1,5 +1,5 @@
 {{- $id := printf "cva-%s" (substr (sha1 (string .Ordinal)) 0 8) -}}
-<div class="chatbot-vs-agent" id="{{ $id }}">
+<div class="widget chatbot-vs-agent" id="{{ $id }}">
   <div class="cva-prompt">
     <span class="cva-prompt-tag">👤 You ask both:</span>
     <span class="cva-prompt-body">"What's the weather in Bangkok right now?"</span>

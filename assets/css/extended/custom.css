@@ -1701,13 +1701,9 @@ body.dark .token-pill {
    Chatbot vs Agent comparison
    ----------------------------------------- */
 
-.chatbot-vs-agent {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px;
-    margin: 28px 0;
-    background: var(--entry);
-}
+/* Chrome (.widget) lives in Primitives.
+   This block defines only the layout, prompt strip, mini-step pattern,
+   bubble variants, and verdict footer that are unique to this widget. */
 
 .cva-prompt {
     display: flex;
