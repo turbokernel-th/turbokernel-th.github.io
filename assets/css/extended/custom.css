@@ -1617,38 +1617,20 @@ body.dark .token-pill {
 
 /* -----------------------------------------
    ReAct loop walkthrough
+   Chrome (.widget, .widget-header) lives in Primitives.
+   Role coloring + .is-current come from .role-step (compound class).
+   This block defines only the loop-specific phase pill, progress dots,
+   step reveal animation, and action buttons.
    ----------------------------------------- */
 
-.react-loop {
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-md);
-    margin: 28px 0;
-    background: var(--entry);
-}
-
-.react-loop-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    gap: 12px;
-}
-
-.react-loop-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--primary);
-}
-
 .react-loop-phase {
-    font-size: 12px;
+    font-size: var(--text-xs);
     font-family: var(--font-family-code);
     color: var(--secondary);
     padding: 3px 10px;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: var(--code-bg, var(--tint-10));
-    transition: color 0.2s ease, background 0.2s ease;
+    transition: color var(--transition-base), background var(--transition-base);
 }
 
 .react-loop-phase[data-role="user"]    { color: var(--role-user);    background: var(--role-user-tint); }
@@ -1659,14 +1641,14 @@ body.dark .token-pill {
 
 .react-loop-progress {
     display: flex;
-    gap: 8px;
-    margin-bottom: 14px;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
 }
 
 .react-dot {
     flex: 1;
     height: 4px;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: var(--tint-18);
     transition: background 0.25s ease, transform 0.25s ease;
 }
@@ -1682,19 +1664,16 @@ body.dark .token-pill {
 .react-loop-stage {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 14px;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
     min-height: 120px;
 }
 
+/* Reveal animation — overlays .role-step base styling */
 .react-step {
-    border-left: 3px solid transparent;
-    padding: 10px 14px;
-    background: var(--tint-04);
-    border-radius: 0 8px 8px 0;
     opacity: 0;
     transform: translateY(6px);
-    transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, background var(--transition-base);
     display: none;
 }
 
@@ -1702,16 +1681,6 @@ body.dark .token-pill {
     opacity: 1;
     transform: translateY(0);
     display: block;
-}
-
-.react-step[data-role="user"]    { border-left-color: var(--role-user); }
-.react-step[data-role="think"]   { border-left-color: var(--role-think); }
-.react-step[data-role="act"]     { border-left-color: var(--role-act); }
-.react-step[data-role="observe"] { border-left-color: var(--role-observe); }
-.react-step[data-role="answer"]  { border-left-color: var(--role-answer); background: var(--role-answer-tint); }
-
-.react-step.is-current {
-    background: var(--tint-08);
 }
 
 .react-step-tag {
