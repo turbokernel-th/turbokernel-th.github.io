@@ -31,13 +31,13 @@
     --role-answer-tint:  rgba(59, 123, 217, 0.12);
 
     /* Neutral surface tints — striping, hover, dividers. Theme-agnostic. */
-    --tint-04: var(--tint-04);
-    --tint-06: var(--tint-06);
-    --tint-08: var(--tint-08);
-    --tint-10: var(--tint-10);
-    --tint-12: var(--tint-12);
-    --tint-15: var(--tint-15);
-    --tint-18: var(--tint-18);
+    --tint-04: rgba(127, 127, 127, 0.04);
+    --tint-06: rgba(127, 127, 127, 0.06);
+    --tint-08: rgba(127, 127, 127, 0.08);
+    --tint-10: rgba(127, 127, 127, 0.10);
+    --tint-12: rgba(127, 127, 127, 0.12);
+    --tint-15: rgba(127, 127, 127, 0.15);
+    --tint-18: rgba(127, 127, 127, 0.18);
 
     /* Spacing — 8px base scale */
     --space-xs: 4px;
@@ -52,6 +52,25 @@
     --radius-md: 8px;
     --radius-lg: 12px;
     --radius-pill: 999px;
+
+    /* Typography scale */
+    --text-xs:   12px;
+    --text-sm:   13px;
+    --text-base: 14px;
+    --text-md:   16px;
+    --text-lg:   18px;
+    --text-xl:   24px;
+    --text-2xl:  32px;
+
+    /* Motion */
+    --transition-fast: 0.12s ease;
+    --transition-base: 0.2s ease;
+    --transition-slow: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Shadow */
+    --shadow-sm:    0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md:    0 2px 8px rgba(0, 0, 0, 0.12);
+    --shadow-modal: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 body.dark {
