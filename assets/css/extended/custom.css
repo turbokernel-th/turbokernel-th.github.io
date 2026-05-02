@@ -7,15 +7,12 @@
     --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --font-family-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
     --main-width: 1000px;
-
     /* ── Design tokens (see /DESIGN.md) ────────────────────────────── */
-
     /* Brand — Turbo Vermilion. Accents only: links, buttons, focus, active markers. */
     --brand: #E14F2A;
     --brand-emphasis: #C0411F;
     --brand-tint: #FCEEE9;
     --brand-on: #FFFFFF;
-
     /* Didactic role palette — used inside teaching diagrams only. */
     --role-user: #3B7BD9;
     --role-think: #7C5CFF;
@@ -23,13 +20,11 @@
     --role-observe: #2DB482;
     --role-answer: #3B7BD9;
     --role-error: #B45050;
-
     --role-user-tint:    rgba(59, 123, 217, 0.12);
     --role-think-tint:   rgba(124, 92, 255, 0.12);
     --role-act-tint:     rgba(226, 160, 56, 0.14);
     --role-observe-tint: rgba(45, 180, 130, 0.14);
     --role-answer-tint:  rgba(59, 123, 217, 0.12);
-
     /* Neutral surface tints — striping, hover, dividers. Theme-agnostic. */
     --tint-04: rgba(127, 127, 127, 0.04);
     --tint-06: rgba(127, 127, 127, 0.06);
@@ -38,7 +33,6 @@
     --tint-12: rgba(127, 127, 127, 0.12);
     --tint-15: rgba(127, 127, 127, 0.15);
     --tint-18: rgba(127, 127, 127, 0.18);
-
     /* Spacing — 8px base scale */
     --space-xs: 4px;
     --space-sm: 8px;
@@ -46,13 +40,11 @@
     --space-lg: 24px;
     --space-xl: 40px;
     --space-xxl: 64px;
-
     /* Radius */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
     --radius-pill: 999px;
-
     /* Typography scale */
     --text-xs:   12px;
     --text-sm:   13px;
@@ -61,12 +53,10 @@
     --text-lg:   18px;
     --text-xl:   24px;
     --text-2xl:  32px;
-
     /* Motion */
     --transition-fast: 0.12s ease;
     --transition-base: 0.2s ease;
     --transition-slow: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-
     /* Shadow */
     --shadow-sm:    0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-md:    0 2px 8px rgba(0, 0, 0, 0.12);
@@ -370,580 +360,231 @@ body.dark table tbody tr:hover {
 
    ========================================= */
 
-
-
 #search-modal {
-
     position: fixed;
-
     top: 0;
-
     left: 0;
-
     width: 100vw;
-
     height: 100vh;
-
     background: rgba(0, 0, 0, 0.4); /* Darker overlay */
-
     backdrop-filter: blur(4px);
-
     z-index: 9999;
-
     display: flex;
-
     justify-content: center;
-
     align-items: flex-start;
-
     padding-top: 10vh;
-
     opacity: 0;
-
     visibility: hidden;
-
     transition: opacity 0.2s, visibility 0.2s;
-
 }
-
-
 
 #search-modal.open {
-
     opacity: 1;
-
     visibility: visible;
-
 }
-
-
 
 #search-modal .search-content {
-
     background: var(--entry);
-
     width: 600px;
-
     max-width: 90%;
-
     border-radius: 12px;
-
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
     border: 1px solid var(--border);
-
     display: flex;
-
     flex-direction: column;
-
     max-height: 80vh;
-
     overflow: hidden;
-
     position: relative;
-
 }
-
-
 
 /* Pagefind UI Overrides for PaperMod */
 
 .pagefind-ui {
-
     width: 100%;
-
     font-family: var(--font-family-base);
-
 }
-
-
 
 .pagefind-ui__form {
-
     padding: 1rem;
-
     border-bottom: 1px solid var(--border);
-
     position: relative;
-
 }
-
-
 
 /* Force Magnifying Glass Icon Color */
 
 .pagefind-ui__form::before {
-
     background-color: var(--primary) !important;
-
 }
-
-
 
 .pagefind-ui__search-input {
-
     background: transparent !important;
-
     border: none !important;
-
     font-size: 1.2rem !important;
-
     font-weight: 500;
-
     color: var(--primary) !important;
-
     padding: 0.5rem 0.5rem 0.5rem 2.5rem !important; /* Space for icon */
-
 }
-
-
 
 .pagefind-ui__search-input::placeholder {
-
     color: var(--secondary) !important;
-
     opacity: 0.7;
-
 }
-
-
 
 .pagefind-ui__search-input:focus {
-
     outline: none !important;
-
 }
-
-
 
 .pagefind-ui__search-clear {
-
     background: transparent !important;
-
     color: var(--secondary) !important;
-
 }
-
-
 
 .pagefind-ui__drawer {
-
     background: var(--entry);
-
     overflow-y: auto;
-
     max-height: 60vh;
-
     padding: 0 1rem;
-
 }
-
-
 
 .pagefind-ui__result {
-
     border-color: var(--border) !important;
-
     padding: 1rem 0 !important;
-
 }
-
-
 
 .pagefind-ui__result-thumb {
-
     display: none; /* Hide thumbnails for cleaner look */
-
 }
-
-
 
 .pagefind-ui__result-title {
-
     font-weight: 600 !important;
-
     font-size: 1.1rem !important;
-
     color: var(--primary) !important;
-
 }
-
-
 
 .pagefind-ui__result-link {
-
     color: var(--primary) !important;
-
 }
-
-
 
 .pagefind-ui__result-excerpt {
-
     font-size: 0.95rem !important;
-
     color: var(--secondary) !important;
-
     margin-top: 0.5rem;
-
 }
-
-
 
 /* Highlighted text in results */
 
 .pagefind-ui__result-excerpt mark {
-
     background-color: rgba(255, 255, 0, 0.3);
-
     color: inherit;
-
     border-radius: 2px;
-
 }
-
-
 
 body.dark .pagefind-ui__result-excerpt mark {
-
     background-color: rgba(255, 215, 0, 0.2);
-
     color: #eee;
-
 }
-
-
 
 .pagefind-ui__message {
-
     color: var(--secondary) !important;
-
     padding: 1rem !important;
-
 }
-
-
 
 /* -----------------------------------------
 
-
-
    Nav Bar "Fake" Search Input Styles
-
-
 
    ----------------------------------------- */
 
-
-
-
-
-
-
 /* Target the specific menu item by its URL href - using more robust selectors */
-
-
 
 .menu a[href$="#search"],
 
-
-
 #menu a[href$="#search"],
 
-
-
 nav a[href$="#search"] {
-
-
-
     display: inline-flex !important;
-
-
-
     align-items: center !important;
-
-
-
     background-color: var(--tint-10) !important;
-
-
-
     border: 1px solid var(--border) !important;
-
-
-
     border-radius: 8px !important;
-
-
-
     padding: 4px 12px !important;
-
-
-
     font-size: 14px !important;
-
-
-
     color: var(--secondary) !important;
-
-
-
     transition: all 0.2s ease !important;
-
-
-
     height: 34px !important;
-
-
-
     box-sizing: border-box !important;
-
-
-
     margin-left: 15px !important;
-
-
-
     text-decoration: none !important;
-
-
-
 }
-
-
-
-
-
-
 
 .menu a[href$="#search"]:hover,
 
-
-
 #menu a[href$="#search"]:hover,
 
-
-
 nav a[href$="#search"]:hover {
-
-
-
     background-color: var(--tint-15) !important;
-
-
-
     border-color: var(--secondary) !important;
-
-
-
     color: var(--primary) !important;
-
-
-
 }
-
-
-
-
-
-
 
 /* Add search icon via pseudo-element */
 
-
-
 .menu a[href$="#search"]::before,
-
-
 
 #menu a[href$="#search"]::before,
 
-
-
 nav a[href$="#search"]::before {
-
-
-
     content: "";
-
-
-
     display: inline-block;
-
-
-
     width: 14px;
-
-
-
     height: 14px;
-
-
-
     margin-right: 8px;
-
-
-
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
-
-
-
     background-repeat: no-repeat;
-
-
-
     background-position: center;
-
-
-
     background-size: contain;
-
-
-
     opacity: 0.7;
-
-
-
 }
-
-
-
-
-
-
 
 /* Dark mode adjustments for Nav Bar Input */
 
-
-
 body.dark .menu a[href$="#search"],
-
-
 
 body.dark #menu a[href$="#search"],
 
-
-
 body.dark nav a[href$="#search"] {
-
-
-
     background-color: rgba(255, 255, 255, 0.08) !important;
-
-
-
     color: #bbb !important;
-
-
-
 }
-
-
-
-
-
-
 
 body.dark .menu a[href$="#search"]::before,
 
-
-
 body.dark #menu a[href$="#search"]::before,
 
-
-
 body.dark nav a[href$="#search"]::before {
-
-
-
     filter: invert(1) brightness(1.5);
-
-
-
 }
-
-
-
-
-
-
 
 /* Kbd hint styles inside the fake input */
 
-
-
 .search-hint-key {
-
-
-
     border: 1px solid var(--border);
-
-
-
     border-radius: 4px;
-
-
-
     padding: 1px 5px;
-
-
-
     font-size: 11px;
-
-
-
     color: var(--secondary);
-
-
-
     background-color: var(--tertiary);
-
-
-
     margin-left: 10px;
-
-
-
     line-height: 1.2;
-
-
-
     display: inline-block;
-
-
-
     font-family: var(--font-family-code);
-
-
-
     font-weight: 500;
-
-
-
 }
 
-
-
-
-
-
-
 body.dark .search-hint-key {
-
-
-
     background-color: rgba(0,0,0,0.3);
-
-
-
     border-color: rgba(255,255,255,0.15);
-
-
-
     color: #888;
-
-
-
 }
 
 /* =========================================
@@ -1093,7 +734,6 @@ body.dark .post-content img[style*="border: 1px solid #ccc"] {
     .about-highlights {
         grid-template-columns: repeat(2, 1fr);
     }
-
     /* Collapse search nav pill to icon-only so it fits in narrow nav */
     #menu a[href$="#search"],
     nav a[href$="#search"] {
@@ -1104,12 +744,10 @@ body.dark .post-content img[style*="border: 1px solid #ccc"] {
         min-width: unset !important;
         justify-content: center !important;
     }
-
     #menu a[href$="#search"]::before,
     nav a[href$="#search"]::before {
         margin-right: 0 !important;
     }
-
     .search-hint-key {
         display: none !important;
     }
@@ -1171,12 +809,10 @@ body.dark .post-content img[style*="border: 1px solid #ccc"] {
         align-items: start;
         transition: all 0.3s ease;
     }
-
     .post-layout-grid.toc-collapsed {
         grid-template-columns: 0px minmax(0, 1fr);
         gap: 0;
     }
-
     .post-sidebar {
         position: sticky;
         top: 90px;
@@ -1189,7 +825,6 @@ body.dark .post-content img[style*="border: 1px solid #ccc"] {
         opacity: 1;
         visibility: visible;
     }
-    
     .post-layout-grid.toc-collapsed .post-sidebar {
         opacity: 0;
         visibility: hidden;
@@ -1204,7 +839,6 @@ body.dark .post-content img[style*="border: 1px solid #ccc"] {
     .post-layout-grid {
         display: block;
     }
-
     .post-sidebar {
         margin-bottom: 2rem;
         background: var(--entry);
@@ -1213,11 +847,9 @@ body.dark .post-content img[style*="border: 1px solid #ccc"] {
         border: 1px solid var(--border);
         display: none;
     }
-
     .post-layout-grid.toc-mobile-open .post-sidebar {
         display: block;
     }
-
 }
 
 /* General TOC Styling */
