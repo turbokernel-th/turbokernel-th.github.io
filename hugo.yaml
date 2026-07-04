@@ -12,8 +12,6 @@ params:
   author: "Metee Yingyongwatthanakit"
   math: true
   defaultTheme: light
-  footer:
-    text: "Support me on [Ko-fi](https://ko-fi.com/R5R71YF7JJ)"
 
   profileMode:
     enabled: true
@@ -36,8 +34,6 @@ params:
       url: "https://github.com/turbokernel-th"
     - name: email
       url: "mailto:metee.ying@gmail.com"
-    - name: kofi
-      url: "https://ko-fi.com/R5R71YF7JJ"
 
   ShowShareButtons: true
   ShowToc: true
@@ -78,10 +74,6 @@ menu:
       name: Search
       url: "#search"
       weight: 40
-    - identifier: support
-      name: Support
-      url: "https://ko-fi.com/R5R71YF7JJ"
-      weight: 50
 
 languages:
   en:
@@ -92,8 +84,6 @@ languages:
     weight: 2
     title: "Metee Y \\ Turbo 🚀"
     params:
-      footer:
-        text: "สนับสนุนผมได้ทาง [Ko-fi](https://ko-fi.com/R5R71YF7JJ)"
       profileMode:
         enabled: true
         title: "สวัสดีครับ ผมเทอร์โบนะครับ"
@@ -127,9 +117,5 @@ languages:
           name: ค้นหา
           url: "#search"
           weight: 40
-        - identifier: support
-          name: สนับสนุน
-          url: "https://ko-fi.com/R5R71YF7JJ"
-          weight: 50
 
 copyright: "© 2026 Metee Yingyongwatthanakit. All rights reserved."
